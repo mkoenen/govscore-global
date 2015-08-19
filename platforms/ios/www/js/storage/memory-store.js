@@ -1,6 +1,7 @@
 var MemoryStore = function(successCallback, errorCallback) {
 
     this.findByName = function(searchKey, callback) {
+        console.log(searchKey);
         var orgs = this.orgs.filter(function(element) {
             var Name = element.Name;
             return Name.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
