@@ -21,8 +21,7 @@ var app = {
 
     // Bind Event Listeners
     bindEvents: function() {
-        document.addEventListener("online", this.onOnline, true);
-    document.addEventListener("deviceready", this.buildStore, true); 
+        document.addEventListener("online", this.onOnline, true); 
     document.addEventListener("deviceready", this.showResults, false);
     document.addEventListener("deviceready", this.setbuttons, false);
     document.addEventListener("deviceready", this.initPushwoosh, true);
