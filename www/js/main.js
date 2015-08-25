@@ -7,6 +7,7 @@ function init(){
     document.addEventListener("deviceready", initPushwoosh, true);
     document.addEventListener("deviceready", showResultsButtons, false);
     document.addEventListener("deviceready", onOnline, true);
+    document.addEventListener("deviceready", checkLanguage, true);
 }
 
 
@@ -20,6 +21,34 @@ function setbuttons() {
     document.getElementById('ag4Store').addEventListener('click', ag4validate, false);
     document.getElementById('ag5Store').addEventListener('click', ag5validate, false);
 
+}
+
+/* Globalization ---------------------------------------*/
+
+function checkLanguage() {
+      navigator.globalization.getPreferredLanguage(
+        function (language) {
+            var lang = language.value;
+            //alert('language: ' + lang + '\n');
+            //console.log(lang);
+            translatenow(lang);
+        },
+        function () {alert('Error getting language\n');}
+      );
+    }
+
+function translatenow(mylang) { 
+
+    alert('language: ' + mylang + 'again\n');
+
+    if(mylang == "fr-FR" ) {
+        $.i18n.load(i18n_dict_fr);
+    }else{
+        $.i18n.load(i18n_dict);
+    }
+    
+    $('div#example1')._t('Example 1');
+  
 }
 
 /* Form Validation -------------------------------------*/

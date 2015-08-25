@@ -1,31 +1,14 @@
 /* Events -----------------------------------------*/
 function init(){
     document.addEventListener("online", onOnline, true);
-    document.addEventListener("deviceready", buildStore, true); 
+    document.addEventListener("deviceready", onOnline, true); 
     document.addEventListener("deviceready", showResults, false);
     document.addEventListener("deviceready", setbuttons, false);
     document.addEventListener("deviceready", initPushwoosh, true);
     document.addEventListener("deviceready", showResultsButtons, false);
     document.addEventListener("deviceready", onOnline, true);
+    document.addEventListener("deviceready", checkLanguage, true);
 }
-
-function buildStore(){
-  var store = new MemoryStore();
-        $('.search-key').on('keyup', $.proxy(store.findByName, store));
-}
-
-findByName: function() {
-        console.log('findByName');
-        store.findByName($('.search-key').val(), function(orgs) {
-            var l = orgs.length;
-            var e;
-            $('.org-list').empty();
-            for (var i=0; i<l; i++) {
-                e = orgs[i];
-                $('.org-list').append('<li><a href="#orgs/' + e.id + '">' + e.Name + '</a></li>');
-            }
-        });
-    }
 
 
 //listen for click events      
@@ -38,6 +21,34 @@ function setbuttons() {
     document.getElementById('ag4Store').addEventListener('click', ag4validate, false);
     document.getElementById('ag5Store').addEventListener('click', ag5validate, false);
 
+}
+
+/* Globalization ---------------------------------------*/
+
+function checkLanguage() {
+      navigator.globalization.getPreferredLanguage(
+        function (language) {
+            var lang = language.value;
+            //alert('language: ' + lang + '\n');
+            //console.log(lang);
+            translatenow(lang);
+        },
+        function () {alert('Error getting language\n');}
+      );
+    }
+
+function translatenow(mylang) { 
+
+    alert('language: ' + mylang + 'again\n');
+
+    if(mylang == "fr-FR" ) {
+        $.i18n.load(i18n_dict_fr);
+    }else{
+        $.i18n.load(i18n_dict);
+    }
+    
+    $('div#example1')._t('Example 1');
+  
 }
 
 /* Form Validation -------------------------------------*/
