@@ -5,7 +5,6 @@ function init(){
     document.addEventListener("deviceready", showResults, false);
     document.addEventListener("deviceready", setbuttons, false);
     document.addEventListener("deviceready", showResultsButtons, false);
-    document.addEventListener("deviceready", onOnline, true);
     document.addEventListener("deviceready", checkLanguage, true);
     document.addEventListener("deviceready", initPushwoosh, true);
 }
