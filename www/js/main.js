@@ -4,10 +4,9 @@ function init(){
     document.addEventListener("deviceready", onOnline, true); 
     document.addEventListener("deviceready", showResults, false);
     document.addEventListener("deviceready", setbuttons, false);
-    document.addEventListener("deviceready", initPushwoosh, true);
     document.addEventListener("deviceready", showResultsButtons, false);
-    document.addEventListener("deviceready", onOnline, true);
     document.addEventListener("deviceready", checkLanguage, true);
+    document.addEventListener("deviceready", initPushwoosh, true);
 }
 
 
@@ -26,11 +25,12 @@ function setbuttons() {
 /* Globalization ---------------------------------------*/
 
 function checkLanguage() {
+  alert("going to check to language");
       navigator.globalization.getPreferredLanguage(
         function (language) {
             var lang = language.value;
-            //alert('language: ' + lang + '\n');
-            //console.log(lang);
+            alert('language: ' + lang + '\n');
+            console.log(lang);
             translatenow(lang);
         },
         function () {alert('Error getting language\n');}
@@ -46,7 +46,7 @@ function translatenow(mylang) {
     }else{
         $.i18n.load(i18n_dict);
     }
-    
+
     $('div#example1')._t('Example 1');
   
 }

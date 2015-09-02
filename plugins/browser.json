@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
+        },
+        "org.apache.cordova.globalization": {
+            "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         }
     },
     "dependent_plugins": {}
