@@ -12,25 +12,12 @@ function init(){
 
 //listen for click events      
 function setbuttons() {
-
     document.getElementById('btnStore').addEventListener('click', validate, false);
-    document.getElementById('ag1Store').addEventListener('click', function(){
-      adv_validate(ag1data, 24, 0, ag1savelocal);
-    });
-    document.getElementById('ag2Store').addEventListener('click', function(){
-      adv_validate(ag2data, 24, 24,ag2savelocal);
-
-    });
-    document.getElementById('ag3Store').addEventListener('click', function(){
-      adv_validate(ag3data, 12, 48, ag3savelocal);
-    });
-    document.getElementById('ag4Store').addEventListener('click', function(){
-      adv_validate(ag4data, 24, 60, ag4savelocal);
-    });
-    document.getElementById('ag5Store').addEventListener('click', function(){
-      adv_validate(ag5data, 16, 84, ag5savelocal);
-    });
-
+    document.getElementById('ag1Store').addEventListener('click', function(){ adv_validate(ag1data, 24, 0, ag1savelocal); });
+    document.getElementById('ag2Store').addEventListener('click', function(){ adv_validate(ag2data, 24, 24, ag2savelocal); });
+    document.getElementById('ag3Store').addEventListener('click', function(){ adv_validate(ag3data, 12, 48, ag3savelocal); });
+    document.getElementById('ag4Store').addEventListener('click', function(){ adv_validate(ag4data, 24, 60, ag4savelocal); });
+    document.getElementById('ag5Store').addEventListener('click', function(){ adv_validate(ag5data, 16, 84, ag5savelocal); });
 }
 
 /* Globalization ---------------------------------------*/
@@ -66,56 +53,40 @@ function setbuttons() {
 
 function validate(event) {
   if(gsdata){
-
         notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
-  }else{
-        
-        
+  }else{  
       if( document.gsForm.username.value === "" ) {
-
              notification(  "Please enter your full name!" );
              document.gsForm.username.focus();
              event.preventDefault();
-             return false;
-             
+             return false;      
       }
       if( document.gsForm.email.value !== document.gsForm.email2.value ) {
             notification(  "Email entries don't match. Please try again" );
             document.gsForm.email.focus();
             event.preventDefault();
-            return false;
-            
+            return false;    
       }
-
       if( document.gsForm.email.value === "" ) {
-
             notification(  "Please enter your email address!" );
             document.gsForm.email.focus();
             event.preventDefault();
             return false;
-
       }else{
-
             // Put extra check for data format
             var ret = validateEmail();
             if( ret === false ) {
                 event.preventDefault();
                 return false;
-
              }
       }
-
-
       if( document.gsForm.organization.value === "-1" ) {
-
         notification(  "Please enter your organization!");
          document.gsForm.organization.focus();
          event.preventDefault();
          return false;
       }
-       //check that all answers have been answered
-
+      //check that all answers have been answered
       var i, key, value;
       //loop through the entries, grab value and store in array
       for(i=1; i<=25; i++) {
@@ -126,16 +97,12 @@ function validate(event) {
               event.preventDefault();
               return false;
           }
-      }
-        
+      }       
       savelocal();
-
       }
 }
 
-
 function validateEmail() {
-
    var emailID = document.gsForm.email.value;
    var atpos = emailID.indexOf("@");
    var dotpos = emailID.lastIndexOf(".");
@@ -146,20 +113,14 @@ function validateEmail() {
        event.preventDefault();
        return false;
    }
-
    return( true );
-
 }
 
 function adv_validate( savedData, length, keyaug, savefunc){
     if(savedData){
-
         notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
     }else if(gsdata = null){
-
         notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
-
     }else{
       var i, key, value;
       //loop through the entries, grab value and store in array
@@ -172,151 +133,11 @@ function adv_validate( savedData, length, keyaug, savefunc){
               return false;
           }
       }
-
       savefunc();
-
-      } 
-}
-
-/*function ag1validate(){
-    if(ag1data){
-
-        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
-    }else if(gsdata = null){
-
-        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
-
-    }else{
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=24; i++) {
-          key = "'ag" + i +"'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              notification( "Please answer all questions");
-              event.preventDefault();
-              return false;
-          }
-      }
-
-      ag1savelocal();
-
       } 
 }
 
 
-function ag2validate(){
-    if(ag2data){
-
-        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
-    }else if(gsdata = null){
-
-        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
-
-    }else{
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=24; i++) {
-          key = "'ag" + (i + 24) +"'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              notification( "Please answer all questions");
-              event.preventDefault();
-              return false;
-          }
-      }
-
-      ag2savelocal();
-
-      }
-}
-
-
-function ag3validate(){
-    if(ag3data){
-
-        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
-    }else if(gsdata = null){
-
-        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
-
-    }else{
-
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=12; i++) {
-          key = "'ag" + (i + 48) +"'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              notification( "Please answer all questions");
-              event.preventDefault();
-              return false;
-          }
-      }
-
-      ag3savelocal();
-
-      }
-}
-
-
-function ag4validate(){
-    if(ag4data){
-
-        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
-    }else if(gsdata = null){
-
-        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
-
-    }else{
-
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=24; i++) {
-          key = "'ag" + (i + 60) + "'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              notification( "Please answer all questions");
-              event.preventDefault();
-              return false;
-          }
-      }
-        
-      ag4savelocal();
-
-      }
-}
-function ag5validate(){
-    if(ag5data){
-
-        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-
-    }else if(gsdata = null){
-
-        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
-
-    }else{
-
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=16; i++) {
-          key = "'ag" + (i + 84) +"'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              notification("Please answer all questions");
-              event.preventDefault();
-              return false;
-          }
-      }
-
-      ag5savelocal();
-
-      }
-}*/
 
 /* Notifications ----------------------------------*/
 
@@ -324,9 +145,9 @@ function notification(message,callbk,title,btname) {
   if (navigator.notification) { 
       window.alert = function (message,callbk,title,btname) {
           navigator.notification.alert(
-              message,    // message
+              message,      // message
               callbk,       // callback
-              title, // title
+              title,        // title
               btname        // buttonName
           );
       };
@@ -358,9 +179,7 @@ function formatDate(date) {
     return date;   
 }
 
-
-
-/*------------check the connection --------------*/
+/*------------check network connection --------------*/
 
 function checkConnection(whichfunction) {
     var networkState = navigator.connection.type;
@@ -380,26 +199,23 @@ function checkConnection(whichfunction) {
                 saveServer();
                 break;
             case "cag1":
-                ag1saveServer();
+                adv_saveServer("ag1data", ag1Saved);
                 break;
             case "cag2":
-                ag2saveServer();
+                adv_saveServer("ag2data", ag2Saved);
                 break;
             case "cag3":
-                ag3saveServer();
+                adv_saveServer("ag3data", ag3Saved);
                 break;
             case "cag4":
-                ag4saveServer();
+                adv_saveServer("ag4data", ag4Saved);
                 break;
             case "cag5":
-                ag5saveServer();
+                adv_saveServer("ag5data", ag5Saved);
                 break;
         }
-
     }else{
-
-        notification("Your answers have been stored on your device. They will be saved to our server when you get reconnected to the internet.", goTo(), "No Internet Connection", "OK");  
-        
+        notification("Your answers have been stored on your device. They will be saved to our server when you get reconnected to the internet.", goTo(), "No Internet Connection", "OK");     
     }
 }
 
@@ -450,7 +266,7 @@ function saveToServer(address,dataset,datasaved){
     });
 }
 
-/* Initial Govscore -----------------------------------------------*/
+/* Saving -----------------------------------------------*/
 
 var gsdata = localStorage.getObject('gsdata'); 
 var ag1data = localStorage.getObject('ag1data');
@@ -458,6 +274,8 @@ var ag2data = localStorage.getObject('ag2data');
 var ag3data = localStorage.getObject('ag3data');
 var ag4data = localStorage.getObject('ag4data');
 var ag5data = localStorage.getObject('ag5data');
+
+/* Saving Govscore --------------------------------------*/
  
 /* store locally */
 function savelocal() {
@@ -472,32 +290,64 @@ function savelocal() {
     //construct the json array for user data and add to local storage
     gsdata = {'username': username, 'email': email, 'organization': organization, 'gsdate': gsdate, 'answers':[-1]};
     gsdata = getinputs(gsdata,1,25,"g");
-    localStorage.setObject('gsdata', gsdata);
-    
+    localStorage.setObject('gsdata', gsdata);   
     calcResults();
-
     //now that everything is saved, check the connection
     checkConnection( "cgovscore");
 }
 
 /* save to server */
-
 function saveServer() {
-
     var gsdata;
-
     //get the data from local storage
     gsdata = localStorage.getObject('gsdata');
-
     saveToServer("http://mshlmg.wpengine.com/store-gs.php", gsdata, "gsSaved");
-
 }
 
-/* AG 1 -------------------------------------------------------*/
+/* Saving Advanced Govscore Data ----------------------------------------*/
 
 /* store locally */
 
-function ag1savelocal() {
+function adv_savelocal( date, dataset, dataname, num1, num2, conn ) {
+
+    gsdata = localStorage.getObject('gsdata');
+
+    var mydate = formatDate(new Date());
+
+    dataset = { 'date':mydate, 'email': gsdata.email, 'answers': [-1]};
+    dataset = getinputs(dataset, num1, num2, "ag");
+
+    localStorage.setObject('dataname', dataset);
+
+    calcResults()
+    //now that everything is saved check the connection
+    checkConnection(conn);
+    
+}
+
+function ag1savelocal(){
+    adv_savelocal("ag1date", "ag1data", "ag1data", 1, 24, "cag1");
+}
+function ag2savelocal(){
+    adv_savelocal("ag2date", ag2data, "ag2data",25, 48, "cag2");
+}
+function ag3savelocal(){
+    adv_savelocal("ag3date", ag3data, "ag3data",49, 60, "cag3");
+}
+function ag4savelocal(){
+    adv_savelocal("ag4date", ag4data, "ag4data",61, 84, "cag4");
+}
+function ag5savelocal(){
+    adv_savelocal("ag5date", ag5data, "ag5data",85, 100, "cag5");
+}
+
+/*save to server*/
+function adv_saveServer(dataset, saved) {      
+    dataset = localStorage.getObject('dataset');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", dataset, "saved");      
+}
+
+/*function ag1savelocal() {
 
     var ag1date;
 
@@ -514,22 +364,22 @@ function ag1savelocal() {
     //now that everything is saved check the connection
     checkConnection("cag1");
     
-}
+}*/
 
 /* Save on Server */
 
-function ag1saveServer() {
+/*function ag1saveServer() {
           
     ag1data = localStorage.getObject('ag1data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag1data, "ag1Saved");
         
-}
+}*/
 
 /* AG 2 -------------------------------------------------------*/
 
 /* store locally */
 
-function ag2savelocal() {
+/*function ag2savelocal() {
 
     var ag2date;
 
@@ -546,22 +396,22 @@ function ag2savelocal() {
     //now that everything is saved check the connection
     checkConnection("cag2");
     
-}
+}*/
 
 /* Save on Server */
 
-function ag2saveServer() {
+/*function ag2saveServer() {
  
     ag2data = localStorage.getObject('ag2data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag2data, "ag2Saved");
         
-}
+}*/
 
 /* AG 3 -------------------------------------------------------*/
 
 /* store locally */
 
-function ag3savelocal() {
+/*function ag3savelocal() {
 
     var ag3date;
 
@@ -579,22 +429,22 @@ function ag3savelocal() {
     //now that everything is saved check the connection
     checkConnection("cag3");
     
-}
+}*/
 
 /* Save on Server */
 
-function ag3saveServer() {
+/*function ag3saveServer() {
 
     ag3data = localStorage.getObject('ag3data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag3data, "ag3Saved");
 
-}
+}*/
 
 /* AG 4 -------------------------------------------------------*/
 
 /* store locally */
 
-function ag4savelocal() {
+/*function ag4savelocal() {
 
     var ag4date;
 
@@ -612,22 +462,22 @@ function ag4savelocal() {
     //now that everything is saved check the connection
     checkConnection("cag4");
     
-}
+}*/
 
 /* Save on Server */
 
-function ag4saveServer() {
+/*function ag4saveServer() {
     
     ag4data = localStorage.getObject('ag4data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag4data, "ag4Saved");
 
-}
+}*/
 
 /* AG 5 -------------------------------------------------------*/
 
 /* store locally */
 
-function ag5savelocal() {
+/*function ag5savelocal() {
 
     var ag5date;
 
@@ -644,17 +494,17 @@ function ag5savelocal() {
     //now that everything is saved check the connection
     checkConnection("cag5");
     
-}
+}*/
 
 /* Save on Server */
 
-function ag5saveServer() {
+/*function ag5saveServer() {
 
     ag5data = localStorage.getObject('ag5data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag5data, "ag5Saved");
 
     
-} 
+} */
 
 
 /* App Comes Online ------------------------------------------*/
@@ -673,19 +523,19 @@ function onOnline(event) {
         saveServer();
     }
     if( ag1data && ag1Saved === null){
-        ag1saveServer();
+        adv_saveServer(ag1data, ag1Saved);
     } 
     if( ag2data && ag2Saved === null){
-        ag2saveServer();
+        adv_saveServer(ag2data, ag2Saved);
     }
     if( ag3data && ag3Saved === null){
-        ag3saveServer(); 
+        adv_saveServer(ag3data, ag3Saved); 
     }
     if( ag4data && ag4Saved === null) {
-        ag4saveServer();
+        adv_saveServer(ag4data, ag4Saved);
     }
     if( ag5data && ag5Saved === null){
-        ag5saveServer();
+        adv_saveServer(ag5data, ag5Saved);
     }else{
         return false;
     }

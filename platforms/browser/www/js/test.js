@@ -1,44 +1,56 @@
-//listen for click events      
-function setbuttons(btn,func) {
+//saving the adv gs
 
-    document.getElementById('btnStore').addEventListener('click', function(){
-    	validate();
-    });
-    document.getElementById('ag1Store').addEventListener('click', function({
-    	adv_validate(ag1data, 24, 0, ag1savelocal);
-    }));
-    document.getElementById('ag2Store').addEventListener('click', function(){
-    	adv_validate(ag2data, 24, 24,ag2savelocal);
+function adv_savelocal( dataset, num1, num2, conn )
+adv_savelocal(ag1data, 1, 24, cag1);
+adv_savelocal(ag2data, 25, 48, cag2);
+adv_savelocal(ag3data, 49, 60, cag3);
+adv_savelocal(ag4data, 61, 84, cag4);
+adv_savelocal(ag5data, 85, 100, cag5);
+function adv_savelocal( dataset, num1, num2, conn ) {
 
-    });
-    document.getElementById('ag3Store').addEventListener('click', function({
-    	adv_validate(ag3data, 12, 48, ag3savelocal);
-    }));
-    document.getElementById('ag4Store').addEventListener('click', function(){
-    	adv_validate(ag4data, 24, 60, ag4savelocal);
-    });
-    document.getElementById('ag5Store').addEventListener('click', function({
-    	adv_validate(ag5data, 16, 84, ag5savelocal);
-    }));
+    var date;
 
+    gsdata = localStorage.getObject('gsdata');
+
+    date = formatDate(new Date());
+
+    dataset = { 'date':date, 'email': gsdata.email, 'answers': [-1]};
+    dataset = getinputs(dataset, num1, num2, "ag");
+
+    localStorage.setObject('dataset', dataset);
+
+    calcResults()
+    //now that everything is saved check the connection
+    checkConnection("conn");
+    
 }
+function ag2savelocal() {
 
-//make sure all questions have been answered (govscore)
-function gs_validate( savedData, length, keyaug, savefunc){
-    if(savedData){
-        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
-    }else{
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=length; i++) {
-          key = "'ag" + (i+keyaug) +"'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              notification( "Please answer all questions" );
-              event.preventDefault();
-              return false;
-          }
-      }
-      savefunc();
-      } 
+    var ag2date;
+
+    gsdata = localStorage.getObject('gsdata');
+
+    ag2date = formatDate(new Date());
+
+    ag2data = { 'ag2date':ag2date, 'email': gsdata.email, 'answers': [-1]};
+    ag2data = getinputs(ag2data,25,48,"ag");
+
+    localStorage.setObject('ag2data', ag2data);
+
+    calcResults()
+    //now that everything is saved check the connection
+    checkConnection("cag2");
+    
+}
+function advSaveServer(dataset, saved) {
+          
+    ag1data = localStorage.getObject('ag1data');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag1data, "ag1Saved");
+        
+}
+function ag2saveServer() {
+ 
+    ag2data = localStorage.getObject('ag2data');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag2data, "ag2Saved");
+        
 }
