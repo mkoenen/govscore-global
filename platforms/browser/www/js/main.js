@@ -56,33 +56,21 @@ function setbuttons() {
 function validate(event) {
   if(gsdata){
 
-        alreadySaved();
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
 
   }else{
         
         
       if( document.gsForm.username.value === "" ) {
 
-             if (navigator.notification) { 
-                window.alert = function (message) {
-                  navigator.notification.alert(  "Please enter your full name!" );
-                };
-              }else{
-                alert("Please enter your full name!");
-              }
+             notification(  "Please enter your full name!" );
              document.gsForm.username.focus();
              event.preventDefault();
              return false;
              
       }
       if( document.gsForm.email.value !== document.gsForm.email2.value ) {
-            if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert(  "Email entries don't match. Please try again" );
-              };
-            }else{
-              alert("Email entries don't match. Please try again");
-            }
+            notification(  "Email entries don't match. Please try again" );
             document.gsForm.email.focus();
             event.preventDefault();
             return false;
@@ -91,13 +79,7 @@ function validate(event) {
 
       if( document.gsForm.email.value === "" ) {
 
-            if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert(  "Please enter your email address!" );
-              };
-            }else{
-              alert("Please enter your email address!");
-            }
+            notification(  "Please enter your email address!" );
             document.gsForm.email.focus();
             event.preventDefault();
             return false;
@@ -116,13 +98,7 @@ function validate(event) {
 
       if( document.gsForm.organization.value === "-1" ) {
 
-         if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert(  "Please enter your organization!");
-              };
-            }else{
-              alert("Please enter your organization!");
-            }
+        notification(  "Please enter your organization!");
          document.gsForm.organization.focus();
          event.preventDefault();
          return false;
@@ -135,13 +111,7 @@ function validate(event) {
           key = "'g" + i +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert(  "Please answer all questions");
-              };
-            }else{
-              alert("Please answer all questions");
-            }
+              notification(  "Please answer all questions");
               event.preventDefault();
               return false;
           }
@@ -160,13 +130,7 @@ function validateEmail() {
    var dotpos = emailID.lastIndexOf(".");
    if (atpos < 1 || ( dotpos - atpos < 2 )) {
 
-       if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert( "Please enter a correct email address");
-              };
-            }else{
-              alert("Please enter a correct email address");
-            }
+       notification( "Please enter a correct email address");
        document.gsForm.email.focus();
        event.preventDefault();
        return false;
@@ -179,11 +143,11 @@ function validateEmail() {
 function ag1validate(){
     if(ag1data){
 
-        alreadySaved();
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
 
     }else if(gsdata = null){
 
-        gsFirst();
+        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
 
     }else{
       var i, key, value;
@@ -192,13 +156,7 @@ function ag1validate(){
           key = "'ag" + i +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert( "Please answer all questions");
-              };
-            }else{
-              alert("Please answer all questions");
-            }
+              notification( "Please answer all questions");
               event.preventDefault();
               return false;
           }
@@ -213,11 +171,11 @@ function ag1validate(){
 function ag2validate(){
     if(ag2data){
 
-        alreadySaved();
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
 
     }else if(gsdata = null){
 
-        gsFirst();
+        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
 
     }else{
       var i, key, value;
@@ -226,13 +184,7 @@ function ag2validate(){
           key = "'ag" + (i + 24) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert( "Please answer all questions");
-              };
-            }else{
-              alert("Please answer all questions");
-            }
+              notification( "Please answer all questions");
               event.preventDefault();
               return false;
           }
@@ -247,11 +199,11 @@ function ag2validate(){
 function ag3validate(){
     if(ag3data){
 
-        alreadySaved();
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
 
     }else if(gsdata = null){
 
-        gsFirst();
+        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
 
     }else{
 
@@ -261,13 +213,7 @@ function ag3validate(){
           key = "'ag" + (i + 48) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert( "Please answer all questions");
-              };
-            }else{
-              alert("Please answer all questions");
-            }
+              notification( "Please answer all questions");
               event.preventDefault();
               return false;
           }
@@ -282,11 +228,11 @@ function ag3validate(){
 function ag4validate(){
     if(ag4data){
 
-        alreadySaved();
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
 
     }else if(gsdata = null){
 
-        gsFirst();
+        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
 
     }else{
 
@@ -296,13 +242,7 @@ function ag4validate(){
           key = "'ag" + (i + 60) + "'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert( "Please answer all questions");
-              };
-            }else{
-              alert("Please answer all questions");
-            }
+              notification( "Please answer all questions");
               event.preventDefault();
               return false;
           }
@@ -315,11 +255,11 @@ function ag4validate(){
 function ag5validate(){
     if(ag5data){
 
-        alreadySaved();
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
 
     }else if(gsdata = null){
 
-        gsFirst();
+        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
 
     }else{
 
@@ -329,13 +269,7 @@ function ag5validate(){
           key = "'ag" + (i + 84) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              if (navigator.notification) { 
-              window.alert = function (message) {
-                navigator.notification.alert( "Please answer all questions");
-              };
-            }else{
-              alert("Please answer all questions");
-            }
+              notification("Please answer all questions");
               event.preventDefault();
               return false;
           }
@@ -347,47 +281,27 @@ function ag5validate(){
 }
 
 /* Notifications ----------------------------------*/
-//var organization = gsdata.answers[organization];
 
-function messageAfterSaveLocal() {
-    var saveLocal = 'Your answers have been stored on your device. They will be saved to our server when you get reconnected to the internet.';
-    //navigator.notification.alert(saveLocal, goTo(), "No Internet Connection", "OK");
-
-    if (navigator.notification) { 
-      window.alert = function (saveLocal) {
+function notification(message,callbk,title,btname) {
+  if (navigator.notification) { 
+      window.alert = function (message,callbk,title,btname) {
           navigator.notification.alert(
-              saveLocal,    // message
-              goTo(),       // callback
-              "No Internet Connection", // title
-              'OK'        // buttonName
+              message,    // message
+              callbk,       // callback
+              title, // title
+              btname        // buttonName
           );
       };
-    }else{
-      alert(saveLocal);
-      goTo();
-    }
+   }else{
+      alert(message);
+      callback;
+   }
 }
 
-function alreadySaved() {
-    var alSaved = 'You previously finished this assessment. Please check your results.';
-    //navigator.notification.alert(alSaved, goTo(), "Already Completed", "OK");
 
-    if (navigator.notification) { 
-      window.alert = function (alSaved) {
-          navigator.notification.alert(
-              alSaved,    // message
-              goTo(),       // callback
-              "Already Completed", // title
-              'OK'        // buttonName
-          );
-      };
-    }else{
-      alert(alSaved);
-      goTo();
-    }
-}
 
-function gsFirst() {
+
+/*function gsFirst() {
     var doFirst = 'Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.';
     //navigator.notification.alert(doFirst, goToGs(), "Alert", "OK");
 
@@ -404,7 +318,7 @@ function gsFirst() {
       alert(alSaved);
       goToGs();
     }
-}
+}*/
 
 function goTo(){
     window.location.hash = "govscore-results";
@@ -466,7 +380,7 @@ function checkConnection(whichfunction) {
 
     }else{
 
-        messageAfterSaveLocal();  
+        notification("Your answers have been stored on your device. They will be saved to our server when you get reconnected to the internet.", goTo(), "No Internet Connection", "OK");  
         
     }
 }
@@ -500,51 +414,23 @@ var gsSaved = "false", ag1Saved = "false", ag2Saved = "false", ag3Saved = "false
 
 //save the json data array to the server via ajax call
 function saveToServer(address,dataset,datasaved){
-            $.ajax({
-            type       : "GET",
-            url        : address,
-            crossDomain: true,
-            data       : dataset,
-            contentType: 'application/json; charset=utf-8',
-            ////dataType   : 'json',
-            success    : function(responseData) {
-                        //navigator.notification.alert(responseData, goTo(), "Update", "OK");
-
-                        if (navigator.notification) { 
-                          window.alert = function (responseData) {
-                              navigator.notification.alert(
-                                  responseData,    // message
-                                  goTo(),       // callback
-                                  "Update", // title
-                                  'OK'        // buttonName
-                              );
-                          };
-                        }else{
-                          alert(responseData);
-                          goTo();
-                        }
-
-                        localStorage.setItem(datasaved, "true");
-                        showResultsButtons();
-                        },
-            error      : function(response) {
-                        //navigator.notification.alert(responseData); 
-
-                        if (navigator.notification) { 
-                          window.alert = function (responseData) {
-                              navigator.notification.alert(
-                                  responseData
-                              );
-                          };
-                        }else{
-                          alert(responseData);
-                        }
-
-                         } 
-                         
-            });
-            
-        }
+    $.ajax({
+    type       : "GET",
+    url        : address,
+    crossDomain: true,
+    data       : dataset,
+    contentType: 'application/json; charset=utf-8',
+    ////dataType   : 'json',
+    success    : function(responseData) {
+                notification(responseData, goTo(), "Update", "OK");
+                localStorage.setItem(datasaved, "true");
+                showResultsButtons();
+                },
+    error      : function(response) {
+                notification(responseData); 
+                } 
+    });
+}
 
 /* Initial Govscore -----------------------------------------------*/
 
