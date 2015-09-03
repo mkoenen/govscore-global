@@ -14,11 +14,22 @@ function init(){
 function setbuttons() {
 
     document.getElementById('btnStore').addEventListener('click', validate, false);
-    document.getElementById('ag1Store').addEventListener('click', ag1validate, false);
-    document.getElementById('ag2Store').addEventListener('click', ag2validate, false);
-    document.getElementById('ag3Store').addEventListener('click', ag3validate, false);
-    document.getElementById('ag4Store').addEventListener('click', ag4validate, false);
-    document.getElementById('ag5Store').addEventListener('click', ag5validate, false);
+    document.getElementById('ag1Store').addEventListener('click', function(){
+      adv_validate(ag1data, 24, 0, ag1savelocal);
+    });
+    document.getElementById('ag2Store').addEventListener('click', function(){
+      adv_validate(ag2data, 24, 24,ag2savelocal);
+
+    });
+    document.getElementById('ag3Store').addEventListener('click', function(){
+      adv_validate(ag3data, 12, 48, ag3savelocal);
+    });
+    document.getElementById('ag4Store').addEventListener('click', function(){
+      adv_validate(ag4data, 24, 60, ag4savelocal);
+    });
+    document.getElementById('ag5Store').addEventListener('click', function(){
+      adv_validate(ag5data, 16, 84, ag5savelocal);
+    });
 
 }
 
@@ -140,7 +151,34 @@ function validateEmail() {
 
 }
 
-function ag1validate(){
+function adv_validate( savedData, length, keyaug, savefunc){
+    if(savedData){
+
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
+
+    }else if(gsdata = null){
+
+        notification('Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.', goToGs(), "Alert", "OK");
+
+    }else{
+      var i, key, value;
+      //loop through the entries, grab value and store in array
+      for(i=1; i<=length; i++) {
+          key = "'ag" + (i+keyaug) +"'";
+          value = $('input[name = ' + key + ']:checked').val();
+          if(value === "" || value == undefined) {
+              notification( "Please answer all questions" );
+              event.preventDefault();
+              return false;
+          }
+      }
+
+      savefunc();
+
+      } 
+}
+
+/*function ag1validate(){
     if(ag1data){
 
         notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
@@ -278,7 +316,7 @@ function ag5validate(){
       ag5savelocal();
 
       }
-}
+}*/
 
 /* Notifications ----------------------------------*/
 
@@ -294,31 +332,11 @@ function notification(message,callbk,title,btname) {
       };
    }else{
       alert(message);
-      callback;
+      callbk;
    }
 }
 
-
-
-
-/*function gsFirst() {
-    var doFirst = 'Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.';
-    //navigator.notification.alert(doFirst, goToGs(), "Alert", "OK");
-
-    if (navigator.notification) { 
-      window.alert = function (doFirst) {
-          navigator.notification.alert(
-              doFirst,    // message
-              goToGs(),       // callback
-              "Alert", // title
-              'OK'        // buttonName
-          );
-      };
-    }else{
-      alert(alSaved);
-      goToGs();
-    }
-}*/
+/* Switch Page -----------------------------------------------*/
 
 function goTo(){
     window.location.hash = "govscore-results";

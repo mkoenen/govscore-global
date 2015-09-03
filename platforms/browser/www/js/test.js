@@ -23,15 +23,10 @@ function setbuttons(btn,func) {
 
 }
 
-function adv_validate( savedData, length, keyaug, savefunc){
+//make sure all questions have been answered (govscore)
+function gs_validate( savedData, length, keyaug, savefunc){
     if(savedData){
-
-        alreadySaved();
-
-    }else if(gsdata = null){
-
-        gsFirst();
-
+        notification('You previously finished this assessment. Please check your results.', goTo(), "Already Completed", "OK");
     }else{
       var i, key, value;
       //loop through the entries, grab value and store in array
@@ -39,41 +34,11 @@ function adv_validate( savedData, length, keyaug, savefunc){
           key = "'ag" + (i+keyaug) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              notification( "Please answer all questions" );
               event.preventDefault();
               return false;
           }
       }
-
       savefunc();
-
       } 
 }
-
-
-function simple_notification(message) {
-  if (navigator.notification) { 
-      window.alert = function (message) {
-          navigator.notification.alert(message);
-      };
-   }else{
-      alert(message);
-   }
-}
-
-function adv_notification(message,callbk,title,btname) {
-  if (navigator.notification) { 
-      window.alert = function (message,callbk,title,btname) {
-          navigator.notification.alert(
-              message,    // message
-              callbk,       // callback
-              title, // title
-              btname        // buttonName
-          );
-      };
-   }else{
-      alert(message);
-      callback;
-   }
-}
- 
