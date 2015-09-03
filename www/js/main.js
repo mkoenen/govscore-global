@@ -4,70 +4,52 @@ function init(){
     document.addEventListener("deviceready", onOnline, true); 
     document.addEventListener("deviceready", showResults, false);
     document.addEventListener("deviceready", setbuttons, false);
+    //document.addEventListener("deviceready", initPushwoosh, true);
     document.addEventListener("deviceready", showResultsButtons, false);
     document.addEventListener("deviceready", onOnline, true);
-    document.addEventListener("deviceready", checkLanguage, true);
-    document.addEventListener("deviceready", initPushwoosh, true);
 }
 
 
 //listen for click events      
 function setbuttons() {
 
-    function setbuttons(btn,func) {
-
-    document.getElementById('btnStore').addEventListener('click', function(){
-      validate();
-    });
-    document.getElementById('ag1Store').addEventListener('click', function({
-      adv_validate(ag1data, 24, 0, ag1savelocal);
-    }));
-    document.getElementById('ag2Store').addEventListener('click', function(){
-      adv_validate(ag2data, 24, 24,ag2savelocal);
-
-    });
-    document.getElementById('ag3Store').addEventListener('click', function({
-      adv_validate(ag3data, 12, 48, ag3savelocal);
-    }));
-    document.getElementById('ag4Store').addEventListener('click', function(){
-      adv_validate(ag4data, 24, 60, ag4savelocal);
-    });
-    document.getElementById('ag5Store').addEventListener('click', function({
-      adv_validate(ag5data, 16, 84, ag5savelocal);
-    }));
-
-}
+    document.getElementById('btnStore').addEventListener('click', validate, false);
+    document.getElementById('ag1Store').addEventListener('click', ag1validate, false);
+    document.getElementById('ag2Store').addEventListener('click', ag2validate, false);
+    document.getElementById('ag3Store').addEventListener('click', ag3validate, false);
+    document.getElementById('ag4Store').addEventListener('click', ag4validate, false);
+    document.getElementById('ag5Store').addEventListener('click', ag5validate, false);
 
 }
 
 /* Globalization ---------------------------------------*/
 
-function checkLanguage() {
-  alert("going to check to language");
-      navigator.globalization.getPreferredLanguage(
-        function (language) {
-            var lang = language.value;
-            alert('language: ' + lang + '\n');
-            console.log(lang);
-            translatenow(lang);
-        },
-        function () {alert('Error getting language\n');}
-      );
-    }
+// function checkLanguage() {
+//   alert("going to check to language");
+//       navigator.globalization.getPreferredLanguage(
+//         function (language) {
+//             var lang = language.value;
+//             alert('language: ' + lang + '\n');
+//             console.log(lang);
+//             translatenow(lang);
+//         },
+//         function () {alert('Error getting language\n');}
+//       );
+//     }
 
-function translatenow(mylang) { 
+// function translatenow(mylang) { 
 
-    alert('language: ' + mylang + 'again\n');
+//     alert('language: ' + mylang + 'again\n');
 
-    if(mylang == "fr-FR" ) {
-        $.i18n.load(i18n_dict_fr);
-    }else{
-        $.i18n.load(i18n_dict);
-    }
+//     if(mylang == "fr-FR" ) {
+//         $.i18n.load(i18n_dict_fr);
+//     }else{
+//         $.i18n.load(i18n_dict);
+//     }
 
-    $('div#example1')._t('Example 1');
+//     $('div#example1')._t('Example 1');
   
-}
+// }
 
 /* Form Validation -------------------------------------*/
 
@@ -81,15 +63,26 @@ function validate(event) {
         
       if( document.gsForm.username.value === "" ) {
 
-             navigator.notification.alert( "Please enter your full name!" );
+             if (navigator.notification) { 
+                window.alert = function (message) {
+                  navigator.notification.alert(  "Please enter your full name!" );
+                };
+              }else{
+                alert("Please enter your full name!");
+              }
              document.gsForm.username.focus();
              event.preventDefault();
              return false;
              
       }
       if( document.gsForm.email.value !== document.gsForm.email2.value ) {
-
-            navigator.notification.alert( "Email entries don't match. Please try again" );
+            if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert(  "Email entries don't match. Please try again" );
+              };
+            }else{
+              alert("Email entries don't match. Please try again");
+            }
             document.gsForm.email.focus();
             event.preventDefault();
             return false;
@@ -98,7 +91,13 @@ function validate(event) {
 
       if( document.gsForm.email.value === "" ) {
 
-            navigator.notification.alert( "Please enter your email address!" );
+            if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert(  "Please enter your email address!" );
+              };
+            }else{
+              alert("Please enter your email address!");
+            }
             document.gsForm.email.focus();
             event.preventDefault();
             return false;
@@ -117,7 +116,13 @@ function validate(event) {
 
       if( document.gsForm.organization.value === "-1" ) {
 
-         navigator.notification.alert( "Please enter your organization!" );
+         if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert(  "Please enter your organization!");
+              };
+            }else{
+              alert("Please enter your organization!");
+            }
          document.gsForm.organization.focus();
          event.preventDefault();
          return false;
@@ -130,7 +135,13 @@ function validate(event) {
           key = "'g" + i +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert(  "Please answer all questions");
+              };
+            }else{
+              alert("Please answer all questions");
+            }
               event.preventDefault();
               return false;
           }
@@ -149,7 +160,13 @@ function validateEmail() {
    var dotpos = emailID.lastIndexOf(".");
    if (atpos < 1 || ( dotpos - atpos < 2 )) {
 
-       navigator.notification.alert("Please enter a correct email address");
+       if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert( "Please enter a correct email address");
+              };
+            }else{
+              alert("Please enter a correct email address");
+            }
        document.gsForm.email.focus();
        event.preventDefault();
        return false;
@@ -159,29 +176,145 @@ function validateEmail() {
 
 }
 
-function adv_validate( savedData, length, keyaug, savefunc ){
-    if(savedData){
+function ag1validate(){
+    if(ag1data){
+
         alreadySaved();
+
     }else if(gsdata = null){
+
         gsFirst();
+
     }else{
       var i, key, value;
       //loop through the entries, grab value and store in array
-      for(i=1; i<=length; i++) {
-          key = "'ag" + (i+keyaug) +"'";
+      for(i=1; i<=24; i++) {
+          key = "'ag" + i +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
               navigator.notification.alert( "Please answer all questions" );
               event.preventDefault();
               return false;
+          }
       }
-    }
-    savefunc();
-    } 
+
+      ag1savelocal();
+
+      } 
 }
 
 
+function ag2validate(){
+    if(ag2data){
 
+        alreadySaved();
+
+    }else if(gsdata = null){
+
+        gsFirst();
+
+    }else{
+      var i, key, value;
+      //loop through the entries, grab value and store in array
+      for(i=1; i<=24; i++) {
+          key = "'ag" + (i + 24) +"'";
+          value = $('input[name = ' + key + ']:checked').val();
+          if(value === "" || value == undefined) {
+              navigator.notification.alert( "Please answer all questions" );
+              event.preventDefault();
+              return false;
+          }
+      }
+
+      ag2savelocal();
+
+      }
+}
+
+
+function ag3validate(){
+    if(ag3data){
+
+        alreadySaved();
+
+    }else if(gsdata = null){
+
+        gsFirst();
+
+    }else{
+
+      var i, key, value;
+      //loop through the entries, grab value and store in array
+      for(i=1; i<=12; i++) {
+          key = "'ag" + (i + 48) +"'";
+          value = $('input[name = ' + key + ']:checked').val();
+          if(value === "" || value == undefined) {
+              navigator.notification.alert( "Please answer all questions" );
+              event.preventDefault();
+              return false;
+          }
+      }
+
+      ag3savelocal();
+
+      }
+}
+
+
+function ag4validate(){
+    if(ag4data){
+
+        alreadySaved();
+
+    }else if(gsdata = null){
+
+        gsFirst();
+
+    }else{
+
+      var i, key, value;
+      //loop through the entries, grab value and store in array
+      for(i=1; i<=24; i++) {
+          key = "'ag" + (i + 60) + "'";
+          value = $('input[name = ' + key + ']:checked').val();
+          if(value === "" || value == undefined) {
+              navigator.notification.alert( "Please answer all questions" );
+              event.preventDefault();
+              return false;
+          }
+      }
+        
+      ag4savelocal();
+
+      }
+}
+function ag5validate(){
+    if(ag5data){
+
+        alreadySaved();
+
+    }else if(gsdata = null){
+
+        gsFirst();
+
+    }else{
+
+      var i, key, value;
+      //loop through the entries, grab value and store in array
+      for(i=1; i<=16; i++) {
+          key = "'ag" + (i + 84) +"'";
+          value = $('input[name = ' + key + ']:checked').val();
+          if(value === "" || value == undefined) {
+              navigator.notification.alert( "Please answer all questions" );
+              event.preventDefault();
+              return false;
+          }
+      }
+
+      ag5savelocal();
+
+      }
+}
 
 /* Notifications ----------------------------------*/
 //var organization = gsdata.answers[organization];
@@ -742,78 +875,78 @@ function calcResults() {
 
 
 /* Pushwoosh ---------------------------------------------------*/
-function initPushwoosh() {
-      var pushNotification = window.plugins.pushNotification;
+// function initPushwoosh() {
+//       var pushNotification = window.plugins.pushNotification;
 
-      if(device.platform == "Android")
-      {
-        registerPushwooshAndroid();
-      }else if(device.platform == "iPhone" || device.platform == "iOS")
-      {
-        registerPushwooshIOS();
-      }
-    }
+//       if(device.platform == "Android")
+//       {
+//         registerPushwooshAndroid();
+//       }else if(device.platform == "iPhone" || device.platform == "iOS")
+//       {
+//         registerPushwooshIOS();
+//       }
+//     }
 
-function registerPushwooshAndroid() {
-    var pushNotification = window.plugins.pushNotification;
+// function registerPushwooshAndroid() {
+//     var pushNotification = window.plugins.pushNotification;
  
-    //set push notifications handler
-    document.addEventListener('push-notification', function(event) {
-        var title = event.notification.title;
-        var userData = event.notification.userdata;
+//     //set push notifications handler
+//     document.addEventListener('push-notification', function(event) {
+//         var title = event.notification.title;
+//         var userData = event.notification.userdata;
                                  
-        if(typeof(userData) != "undefined") {
-            console.warn('user data: ' + JSON.stringify(userData));
-        }
+//         if(typeof(userData) != "undefined") {
+//             console.warn('user data: ' + JSON.stringify(userData));
+//         }
                                      
-        alert(title);
-    });
+//         alert(title);
+//     });
  
-    //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
-    pushNotification.onDeviceReady({ projectid: "864197909703", pw_appid : "4C804-675D6" });
+//     //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+//     pushNotification.onDeviceReady({ projectid: "864197909703", pw_appid : "4C804-675D6" });
  
-    //register for pushes
-    pushNotification.registerDevice(
-        function(status) {
-            var pushToken = status;
-            console.warn('push token: ' + pushToken);
-        },
-        function(status) {
-            console.warn(JSON.stringify(['failed to register ', status]));
-        }
-    );
-}
+//     //register for pushes
+//     pushNotification.registerDevice(
+//         function(status) {
+//             var pushToken = status;
+//             console.warn('push token: ' + pushToken);
+//         },
+//         function(status) {
+//             console.warn(JSON.stringify(['failed to register ', status]));
+//         }
+//     );
+// }
 
-function registerPushwooshIOS() {
-    var pushNotification = window.plugins.pushNotification;
+// function registerPushwooshIOS() {
+//     var pushNotification = window.plugins.pushNotification;
  
-    //set push notification callback before we initialize the plugin
-    document.addEventListener('push-notification', function(event) {
-                                //get the notification payload
-                                var notification = event.notification;
+//     //set push notification callback before we initialize the plugin
+//     document.addEventListener('push-notification', function(event) {
+//                                 //get the notification payload
+//                                 var notification = event.notification;
  
-                                //display alert to the user for example
-                                alert(notification.aps.alert);
+//                                 //display alert to the user for example
+//                                 alert(notification.aps.alert);
                                
-                                //clear the app badge
-                                pushNotification.setApplicationIconBadgeNumber(0);
-                            });
+//                                 //clear the app badge
+//                                 pushNotification.setApplicationIconBadgeNumber(0);
+//                             });
  
-    //initialize the plugin
-    pushNotification.onDeviceReady({pw_appid:"4C804-675D6"});
+//     //initialize the plugin
+//     pushNotification.onDeviceReady({pw_appid:"4C804-675D6"});
      
-    //register for pushes
-    pushNotification.registerDevice(
-        function(status) {
-            var deviceToken = status['deviceToken'];
-            console.warn('registerDevice: ' + deviceToken);
-        },
-        function(status) {
-            console.warn('failed to register : ' + JSON.stringify(status));
-            //alert(JSON.stringify(['failed to register ', status]));
-        }
-    );
+//     //register for pushes
+//     pushNotification.registerDevice(
+//         function(status) {
+//             var deviceToken = status['deviceToken'];
+//             console.warn('registerDevice: ' + deviceToken);
+//         },
+//         function(status) {
+//             console.warn('failed to register : ' + JSON.stringify(status));
+//             //alert(JSON.stringify(['failed to register ', status]));
+//         }
+//     );
      
-    //reset badges on app start
-    pushNotification.setApplicationIconBadgeNumber(0);
-}
+//     //reset badges on app start
+//     pushNotification.setApplicationIconBadgeNumber(0);
+// }

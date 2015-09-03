@@ -12,6 +12,9 @@
         },
         "org.apache.cordova.globalization": {
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         }
     },
     "dependent_plugins": {}

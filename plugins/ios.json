@@ -11,6 +11,20 @@
                         {
                             "xml": "<feature name=\"Globalization\"><param name=\"ios-package\" value=\"CDVGlobalization\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
                         }
                     ]
                 }
@@ -22,6 +36,9 @@
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         },
         "org.apache.cordova.globalization": {
+            "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         }
     },
