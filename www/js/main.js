@@ -508,12 +508,38 @@ function saveToServer(address,dataset,datasaved){
             contentType: 'application/json; charset=utf-8',
             ////dataType   : 'json',
             success    : function(responseData) {
-                        navigator.notification.alert(responseData, goTo(), "Update", "OK");
+                        //navigator.notification.alert(responseData, goTo(), "Update", "OK");
+
+                        if (navigator.notification) { 
+                          window.alert = function (responseData) {
+                              navigator.notification.alert(
+                                  responseData,    // message
+                                  goTo(),       // callback
+                                  "Update", // title
+                                  'OK'        // buttonName
+                              );
+                          };
+                        }else{
+                          alert(responseData);
+                          goTo();
+                        }
+
                         localStorage.setItem(datasaved, "true");
                         showResultsButtons();
                         },
             error      : function(response) {
-                        navigator.notification.alert(responseData);                
+                        //navigator.notification.alert(responseData); 
+
+                        if (navigator.notification) { 
+                          window.alert = function (responseData) {
+                              navigator.notification.alert(
+                                  responseData
+                              );
+                          };
+                        }else{
+                          alert(responseData);
+                        }
+
                          } 
                          
             });

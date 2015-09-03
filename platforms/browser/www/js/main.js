@@ -192,7 +192,13 @@ function ag1validate(){
           key = "'ag" + i +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert( "Please answer all questions");
+              };
+            }else{
+              alert("Please answer all questions");
+            }
               event.preventDefault();
               return false;
           }
@@ -220,7 +226,13 @@ function ag2validate(){
           key = "'ag" + (i + 24) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert( "Please answer all questions");
+              };
+            }else{
+              alert("Please answer all questions");
+            }
               event.preventDefault();
               return false;
           }
@@ -249,7 +261,13 @@ function ag3validate(){
           key = "'ag" + (i + 48) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert( "Please answer all questions");
+              };
+            }else{
+              alert("Please answer all questions");
+            }
               event.preventDefault();
               return false;
           }
@@ -278,7 +296,13 @@ function ag4validate(){
           key = "'ag" + (i + 60) + "'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert( "Please answer all questions");
+              };
+            }else{
+              alert("Please answer all questions");
+            }
               event.preventDefault();
               return false;
           }
@@ -305,7 +329,13 @@ function ag5validate(){
           key = "'ag" + (i + 84) +"'";
           value = $('input[name = ' + key + ']:checked').val();
           if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
+              if (navigator.notification) { 
+              window.alert = function (message) {
+                navigator.notification.alert( "Please answer all questions");
+              };
+            }else{
+              alert("Please answer all questions");
+            }
               event.preventDefault();
               return false;
           }
@@ -321,17 +351,59 @@ function ag5validate(){
 
 function messageAfterSaveLocal() {
     var saveLocal = 'Your answers have been stored on your device. They will be saved to our server when you get reconnected to the internet.';
-    navigator.notification.alert(saveLocal, goTo(), "No Internet Connection", "OK");
+    //navigator.notification.alert(saveLocal, goTo(), "No Internet Connection", "OK");
+
+    if (navigator.notification) { 
+      window.alert = function (saveLocal) {
+          navigator.notification.alert(
+              saveLocal,    // message
+              goTo(),       // callback
+              "No Internet Connection", // title
+              'OK'        // buttonName
+          );
+      };
+    }else{
+      alert(saveLocal);
+      goTo();
+    }
 }
 
 function alreadySaved() {
     var alSaved = 'You previously finished this assessment. Please check your results.';
-    navigator.notification.alert(alSaved, goTo(), "Already Completed", "OK");
+    //navigator.notification.alert(alSaved, goTo(), "Already Completed", "OK");
+
+    if (navigator.notification) { 
+      window.alert = function (alSaved) {
+          navigator.notification.alert(
+              alSaved,    // message
+              goTo(),       // callback
+              "Already Completed", // title
+              'OK'        // buttonName
+          );
+      };
+    }else{
+      alert(alSaved);
+      goTo();
+    }
 }
 
 function gsFirst() {
     var doFirst = 'Please complete the initial Govscore assessment before moving on to the Advanced Govscore questionnaires.';
-    navigator.notification.alert(doFirst, goToGs(), "Alert", "OK");
+    //navigator.notification.alert(doFirst, goToGs(), "Alert", "OK");
+
+    if (navigator.notification) { 
+      window.alert = function (doFirst) {
+          navigator.notification.alert(
+              doFirst,    // message
+              goToGs(),       // callback
+              "Alert", // title
+              'OK'        // buttonName
+          );
+      };
+    }else{
+      alert(alSaved);
+      goToGs();
+    }
 }
 
 function goTo(){
