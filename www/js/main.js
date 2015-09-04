@@ -157,6 +157,7 @@ function notification(message,callbk,title,btname) {
    }
 }
 
+
 /* Switch Page -----------------------------------------------*/
 
 function goTo(){
@@ -166,6 +167,7 @@ function goTo(){
 function goToGs() {
     window.location.hash = "govscore";
 }
+
 
 /* Get Date --------------------------------------------------*/
 
@@ -178,6 +180,7 @@ function formatDate(date) {
             ('00' + date.getUTCSeconds()).slice(-2); 
     return date;   
 }
+
 
 /*------------check network connection --------------*/
 
@@ -219,6 +222,40 @@ function checkConnection(whichfunction) {
     }
 }
 
+
+/* App Comes Online ------------------------------------------*/
+
+//check if online according to the above interval
+function onOnline(event) {
+    //there must be locally saved data and the saved flag must be false
+    gsSaved = localStorage.getItem("gsSaved");
+    ag1Saved = localStorage.getItem("ag1Saved");
+    ag2Saved = localStorage.getItem("ag2Saved");
+    ag3Saved = localStorage.getItem("ag3Saved");
+    ag4Saved = localStorage.getItem("ag4Saved");
+    ag5Saved = localStorage.getItem("ag5Saved");
+
+    if( gsdata && gsSaved === null){
+        saveServer();
+    }
+    if( ag1data && ag1Saved === null){
+        ag1saveServer();
+    } 
+    if( ag2data && ag2Saved === null){
+        ag2saveServer();
+    }
+    if( ag3data && ag3Saved === null){
+        ag3saveServer(); 
+    }
+    if( ag4data && ag4Saved === null) {
+        ag4saveServer();
+    }
+    if( ag5data && ag5Saved === null){
+        ag5saveServer();
+    }else{
+        return false;
+    }
+}
 
 /* Functions for processing data -----------------------------------------------*/
 
@@ -266,14 +303,16 @@ function saveToServer(address,dataset,datasaved){
     });
 }
 
+
 /* Saving -----------------------------------------------*/
 
-var gsdata = localStorage.getObject('gsdata'); 
+/*var gsdata = localStorage.getObject('gsdata'); 
 var ag1data = localStorage.getObject('ag1data');
 var ag2data = localStorage.getObject('ag2data');
 var ag3data = localStorage.getObject('ag3data');
 var ag4data = localStorage.getObject('ag4data');
-var ag5data = localStorage.getObject('ag5data');
+var ag5data = localStorage.getObject('ag5data');*/
+
 
 /* Saving Govscore --------------------------------------*/
  
@@ -308,183 +347,77 @@ function saveServer() {
 
 /* store locally */
 
-/*save to server*/
-
 function ag1savelocal() {
     gsdata = localStorage.getObject('gsdata');
     var ag1date = formatDate(new Date());
     ag1data = { 'ag1date':ag1date, 'email': gsdata.email, 'answers': [-1]};
     ag1data = getinputs(ag1data,1,24,"ag");
     localStorage.setObject('ag1data', ag1data);
-    calcResults()
+    calcResults();
     checkConnection("cag1");   
 }
-
-/* Save on Server */
-
-function ag1saveServer() {
-          
-    ag1data = localStorage.getObject('ag1data');
-    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag1data, "ag1Saved");
-        
-}
-
-/* AG 2 -------------------------------------------------------*/
-
-/* store locally */
-
 function ag2savelocal() {
     gsdata = localStorage.getObject('gsdata');
     var ag2date = formatDate(new Date());
     ag2data = { 'ag2date':ag2date, 'email': gsdata.email, 'answers': [-1]};
     ag2data = getinputs(ag2data,25,48,"ag");
     localStorage.setObject('ag2data', ag2data);
-    calcResults()
+    calcResults();
     checkConnection("cag2");
 }
-
-/* Save on Server */
-
-function ag2saveServer() {
- 
-    ag2data = localStorage.getObject('ag2data');
-    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag2data, "ag2Saved");
-        
-}
-
-/* AG 3 -------------------------------------------------------*/
-
-/* store locally */
-
 function ag3savelocal() {
-
-    var ag3date;
-
     gsdata = localStorage.getObject('gsdata');
-
-    ag3date = formatDate(new Date());
-
+    var ag3date = formatDate(new Date());
     ag3data = { 'ag3date':ag3date, 'email': gsdata.email, 'answers': [-1]};
     ag3data = getinputs(ag3data,49,60,"ag");
-
     localStorage.setObject('ag3data', ag3data);
-
-    calcResults()
-
-    //now that everything is saved check the connection
+    calcResults();
     checkConnection("cag3");
-    
+}
+function ag4savelocal() {
+    gsdata = localStorage.getObject('gsdata');
+    var ag4date = formatDate(new Date());
+    ag4data = { 'ag4date':ag4date, 'email': gsdata.email, 'answers': [-1]};
+    ag4data = getinputs(ag4data,61,84,"ag");
+    localStorage.setObject('ag4data', ag4data);
+    calcResults();
+    checkConnection("cag4");   
+}
+function ag5savelocal() {
+    gsdata = localStorage.getObject('gsdata');
+    var ag5date = formatDate(new Date());
+    ag5data = { 'ag5date':ag5date, 'email': gsdata.email, 'answers': [-1]};
+    ag5data = getinputs(ag5data,85,100,"ag");  
+    localStorage.setObject('ag5data', ag5data);
+    calcResults();
+    checkConnection("cag5");  
 }
 
 /* Save on Server */
 
+function ag1saveServer() {        
+    ag1data = localStorage.getObject('ag1data');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag1data, "ag1Saved");        
+}
+function ag2saveServer() {
+    ag2data = localStorage.getObject('ag2data');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag2data, "ag2Saved");       
+}
 function ag3saveServer() {
 
     ag3data = localStorage.getObject('ag3data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag3data, "ag3Saved");
 
 }
-
-/* AG 4 -------------------------------------------------------*/
-
-/* store locally */
-
-function ag4savelocal() {
-
-    var ag4date;
-
-    gsdata = localStorage.getObject('gsdata');
-
-    ag4date = formatDate(new Date());
-
-    ag4data = { 'ag4date':ag4date, 'email': gsdata.email, 'answers': [-1]};
-    ag4data = getinputs(ag4data,61,84,"ag");
-
-    localStorage.setObject('ag4data', ag4data);
-
-    calcResults()
-
-    //now that everything is saved check the connection
-    checkConnection("cag4");
-    
-}
-
-/* Save on Server */
-
-/*function ag4saveServer() {
-    
+function ag4saveServer() {    
     ag4data = localStorage.getObject('ag4data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag4data, "ag4Saved");
-
-}*/
-
-/* AG 5 -------------------------------------------------------*/
-
-/* store locally */
-
-function ag5savelocal() {
-
-    var ag5date;
-
-    gsdata = localStorage.getObject('gsdata');
-
-    ag5date = formatDate(new Date());
-
-    ag5data = { 'ag5date':ag5date, 'email': gsdata.email, 'answers': [-1]};
-    ag5data = getinputs(ag5data,85,100,"ag");
-    
-    localStorage.setObject('ag5data', ag5data);
-
-    calcResults()
-    //now that everything is saved check the connection
-    checkConnection("cag5");
-    
 }
-
-/* Save on Server */
-
 function ag5saveServer() {
-
     ag5data = localStorage.getObject('ag5data');
-    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag5data, "ag5Saved");
-
-    
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag5data, "ag5Saved");   
 } 
 
-
-/* App Comes Online ------------------------------------------*/
-
-//check if online according to the above interval
-function onOnline(event) {
-    //there must be locally saved data and the saved flag must be false
-    gsSaved = localStorage.getItem("gsSaved");
-    ag1Saved = localStorage.getItem("ag1Saved");
-    ag2Saved = localStorage.getItem("ag2Saved");
-    ag3Saved = localStorage.getItem("ag3Saved");
-    ag4Saved = localStorage.getItem("ag4Saved");
-    ag5Saved = localStorage.getItem("ag5Saved");
-
-    if( gsdata && gsSaved === null){
-        saveServer();
-    }
-    if( ag1data && ag1Saved === null){
-        ag1saveServer();
-    } 
-    if( ag2data && ag2Saved === null){
-        ag2saveServer();
-    }
-    if( ag3data && ag3Saved === null){
-        ag3saveServer(); 
-    }
-    if( ag4data && ag4Saved === null) {
-        ag4saveServer();
-    }
-    if( ag5data && ag5Saved === null){
-        ag5saveServer();
-    }else{
-        return false;
-    }
-}
 
 /* Interface changes -----------------------------------------*/ 
 
