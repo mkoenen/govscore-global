@@ -36,6 +36,9 @@
     <feature name="NetworkStatus">
         <param name="ios-package" value="CDVConnection" />
     </feature>
+    <feature name="Globalization">
+      <param name="android-package" value="org.apache.cordova.Globalization" />
+    </feature>
     
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
