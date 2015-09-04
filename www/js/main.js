@@ -22,32 +22,32 @@ function setbuttons() {
 
 /* Globalization ---------------------------------------*/
 
-// function checkLanguage() {
-//   alert("going to check to language");
-//       navigator.globalization.getPreferredLanguage(
-//         function (language) {
-//             var lang = language.value;
-//             alert('language: ' + lang + '\n');
-//             console.log(lang);
-//             translatenow(lang);
-//         },
-//         function () {alert('Error getting language\n');}
-//       );
-//     }
+function checkLanguage() {
+  alert("going to check to language");
+      navigator.globalization.getPreferredLanguage(
+        function (language) {
+            var lang = language.value;
+            alert('language: ' + lang + '\n');
+            console.log(lang);
+            translatenow(lang);
+        },
+        function () {alert('Error getting language\n');}
+      );
+    }
 
-// function translatenow(mylang) { 
+function translatenow(mylang) { 
 
-//     alert('language: ' + mylang + 'again\n');
+    alert('language: ' + mylang + 'again\n');
 
-//     if(mylang == "fr-FR" ) {
-//         $.i18n.load(i18n_dict_fr);
-//     }else{
-//         $.i18n.load(i18n_dict);
-//     }
+    if(mylang == "fr-FR" ) {
+        $.i18n.load(i18n_dict_fr);
+    }else{
+        $.i18n.load(i18n_dict);
+    }
 
-//     $('div#example1')._t('Example 1');
+    $('div#example1')._t('Example 1');
   
-// }
+}
 
 /* Form Validation -------------------------------------*/
 
