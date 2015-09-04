@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushNotification\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -24,6 +28,34 @@
                     "SystemConfiguration.framework": [
                         {
                             "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "Security.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "Storekit.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "undefined": {
+                "parents": {
+                    "undefined": [
+                        {
+                            "xml": "<access origin=\"*.pushwoosh.com\" />",
                             "count": 1
                         }
                     ]
@@ -39,6 +71,9 @@
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         },
         "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
+        },
+        "com.pushwoosh.plugins.pushwoosh": {
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         }
     },

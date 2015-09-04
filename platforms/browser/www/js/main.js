@@ -199,19 +199,19 @@ function checkConnection(whichfunction) {
                 saveServer();
                 break;
             case "cag1":
-                adv_saveServer("ag1data", ag1Saved);
+                ag1saveServer();
                 break;
             case "cag2":
-                adv_saveServer("ag2data", ag2Saved);
+                ag2saveServer();
                 break;
             case "cag3":
-                adv_saveServer("ag3data", ag3Saved);
+                ag3saveServer();
                 break;
             case "cag4":
-                adv_saveServer("ag4data", ag4Saved);
+                ag4saveServer();
                 break;
             case "cag5":
-                adv_saveServer("ag5data", ag5Saved);
+                ag5saveServer();
                 break;
         }
     }else{
@@ -308,110 +308,55 @@ function saveServer() {
 
 /* store locally */
 
-function adv_savelocal( date, dataset, dataname, num1, num2, conn ) {
-
-    gsdata = localStorage.getObject('gsdata');
-
-    var mydate = formatDate(new Date());
-
-    dataset = { 'date':mydate, 'email': gsdata.email, 'answers': [-1]};
-    dataset = getinputs(dataset, num1, num2, "ag");
-
-    localStorage.setObject('dataname', dataset);
-
-    calcResults()
-    //now that everything is saved check the connection
-    checkConnection(conn);
-    
-}
-
-function ag1savelocal(){
-    adv_savelocal("ag1date", "ag1data", "ag1data", 1, 24, "cag1");
-}
-function ag2savelocal(){
-    adv_savelocal("ag2date", ag2data, "ag2data",25, 48, "cag2");
-}
-function ag3savelocal(){
-    adv_savelocal("ag3date", ag3data, "ag3data",49, 60, "cag3");
-}
-function ag4savelocal(){
-    adv_savelocal("ag4date", ag4data, "ag4data",61, 84, "cag4");
-}
-function ag5savelocal(){
-    adv_savelocal("ag5date", ag5data, "ag5data",85, 100, "cag5");
-}
-
 /*save to server*/
-function adv_saveServer(dataset, saved) {      
-    dataset = localStorage.getObject('dataset');
-    saveToServer("http://mshlmg.wpengine.com/store-ag.php", dataset, "saved");      
-}
 
-/*function ag1savelocal() {
-
-    var ag1date;
-
+function ag1savelocal() {
     gsdata = localStorage.getObject('gsdata');
-
-    ag1date = formatDate(new Date());
-
+    var ag1date = formatDate(new Date());
     ag1data = { 'ag1date':ag1date, 'email': gsdata.email, 'answers': [-1]};
     ag1data = getinputs(ag1data,1,24,"ag");
-
     localStorage.setObject('ag1data', ag1data);
-
     calcResults()
-    //now that everything is saved check the connection
-    checkConnection("cag1");
-    
-}*/
+    checkConnection("cag1");   
+}
 
 /* Save on Server */
 
-/*function ag1saveServer() {
+function ag1saveServer() {
           
     ag1data = localStorage.getObject('ag1data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag1data, "ag1Saved");
         
-}*/
+}
 
 /* AG 2 -------------------------------------------------------*/
 
 /* store locally */
 
-/*function ag2savelocal() {
-
-    var ag2date;
-
+function ag2savelocal() {
     gsdata = localStorage.getObject('gsdata');
-
-    ag2date = formatDate(new Date());
-
+    var ag2date = formatDate(new Date());
     ag2data = { 'ag2date':ag2date, 'email': gsdata.email, 'answers': [-1]};
     ag2data = getinputs(ag2data,25,48,"ag");
-
     localStorage.setObject('ag2data', ag2data);
-
     calcResults()
-    //now that everything is saved check the connection
     checkConnection("cag2");
-    
-}*/
+}
 
 /* Save on Server */
 
-/*function ag2saveServer() {
+function ag2saveServer() {
  
     ag2data = localStorage.getObject('ag2data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag2data, "ag2Saved");
         
-}*/
+}
 
 /* AG 3 -------------------------------------------------------*/
 
 /* store locally */
 
-/*function ag3savelocal() {
+function ag3savelocal() {
 
     var ag3date;
 
@@ -429,22 +374,22 @@ function adv_saveServer(dataset, saved) {
     //now that everything is saved check the connection
     checkConnection("cag3");
     
-}*/
+}
 
 /* Save on Server */
 
-/*function ag3saveServer() {
+function ag3saveServer() {
 
     ag3data = localStorage.getObject('ag3data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag3data, "ag3Saved");
 
-}*/
+}
 
 /* AG 4 -------------------------------------------------------*/
 
 /* store locally */
 
-/*function ag4savelocal() {
+function ag4savelocal() {
 
     var ag4date;
 
@@ -462,7 +407,7 @@ function adv_saveServer(dataset, saved) {
     //now that everything is saved check the connection
     checkConnection("cag4");
     
-}*/
+}
 
 /* Save on Server */
 
@@ -477,7 +422,7 @@ function adv_saveServer(dataset, saved) {
 
 /* store locally */
 
-/*function ag5savelocal() {
+function ag5savelocal() {
 
     var ag5date;
 
@@ -494,17 +439,17 @@ function adv_saveServer(dataset, saved) {
     //now that everything is saved check the connection
     checkConnection("cag5");
     
-}*/
+}
 
 /* Save on Server */
 
-/*function ag5saveServer() {
+function ag5saveServer() {
 
     ag5data = localStorage.getObject('ag5data');
     saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag5data, "ag5Saved");
 
     
-} */
+} 
 
 
 /* App Comes Online ------------------------------------------*/
@@ -523,19 +468,19 @@ function onOnline(event) {
         saveServer();
     }
     if( ag1data && ag1Saved === null){
-        adv_saveServer(ag1data, ag1Saved);
+        ag1saveServer();
     } 
     if( ag2data && ag2Saved === null){
-        adv_saveServer(ag2data, ag2Saved);
+        ag2saveServer();
     }
     if( ag3data && ag3Saved === null){
-        adv_saveServer(ag3data, ag3Saved); 
+        ag3saveServer(); 
     }
     if( ag4data && ag4Saved === null) {
-        adv_saveServer(ag4data, ag4Saved);
+        ag4saveServer();
     }
     if( ag5data && ag5Saved === null){
-        adv_saveServer(ag5data, ag5Saved);
+        ag5saveServer();
     }else{
         return false;
     }

@@ -43,6 +43,11 @@
 		8B91EA32BFB24C7EA2CE5028 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 743B4CEB3DC6468DA5B38C61 /* CDVConnection.m */; };
 		A8B0F8935D3E40B39A3D79EC /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E2007CB33ACB45B999CB8942 /* CDVReachability.m */; };
 		0232C4E43F374A3187348B93 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3772439C963F4FE6A3B65D29 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		06C08D79A95344D5A70AAC56 /* PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636EA1A4CD94455B59484C1 /* PushNotification.m */; };
+		3377E984D38244DDA9329E47 /* Pushwoosh in Resources */ = {isa = PBXBuildFile; fileRef = F5FC48AE66BB44D2A7D72A0C /* Pushwoosh */; };
+		944EE5DF903848E49E5DC972 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16033F0DDAEE4A1594DBB86C /* Security.framework */; };
+		9A1048C8FE634A79B7811281 /* Storekit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 290D0C373F60486EA505345C /* Storekit.framework */; };
+		81184C7CE29B481AA6EE4D0D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1468C37EFFAD4515B4E7EFE9 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +120,13 @@
 		C5BE1D18068D4FAEB450A07F /* CDVConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVConnection.h"; path = "cordova-plugin-network-information/CDVConnection.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		2ABECC7165CF4C5192A10B75 /* CDVReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVReachability.h"; path = "cordova-plugin-network-information/CDVReachability.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		3772439C963F4FE6A3B65D29 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		8636EA1A4CD94455B59484C1 /* PushNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushNotification.m"; path = "com.pushwoosh.plugins.pushwoosh/ios/PushNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F5FC48AE66BB44D2A7D72A0C /* Pushwoosh */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "Pushwoosh"; path = "GovscoreGlobal/Plugins/com.pushwoosh.plugins.pushwoosh/Pushwoosh"; sourceTree = "<group>"; fileEncoding = 4; };
+		EB797BAF4C604F079F0D7065 /* PushNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushNotification.h"; path = "com.pushwoosh.plugins.pushwoosh/ios/PushNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		C36A91523F0242DF8AFADBCF /* PushNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushNotificationManager.h"; path = "com.pushwoosh.plugins.pushwoosh/ios/PushNotificationManager.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		16033F0DDAEE4A1594DBB86C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		290D0C373F60486EA505345C /* Storekit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Storekit.framework"; path = "System/Library/Frameworks/Storekit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		1468C37EFFAD4515B4E7EFE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +139,10 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				0232C4E43F374A3187348B93 /* SystemConfiguration.framework in Frameworks */,
+				3377E984D38244DDA9329E47 /* Pushwoosh in Resources */,
+				944EE5DF903848E49E5DC972 /* Security.framework in Frameworks */,
+				9A1048C8FE634A79B7811281 /* Storekit.framework in Frameworks */,
+				81184C7CE29B481AA6EE4D0D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +216,10 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				3772439C963F4FE6A3B65D29 /* SystemConfiguration.framework */,
+				F5FC48AE66BB44D2A7D72A0C /* Pushwoosh */,
+				16033F0DDAEE4A1594DBB86C /* Security.framework */,
+				290D0C373F60486EA505345C /* Storekit.framework */,
+				1468C37EFFAD4515B4E7EFE9 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,6 +241,9 @@
 				E2007CB33ACB45B999CB8942 /* CDVReachability.m */,
 				C5BE1D18068D4FAEB450A07F /* CDVConnection.h */,
 				2ABECC7165CF4C5192A10B75 /* CDVReachability.h */,
+				8636EA1A4CD94455B59484C1 /* PushNotification.m */,
+				EB797BAF4C604F079F0D7065 /* PushNotification.h */,
+				C36A91523F0242DF8AFADBCF /* PushNotificationManager.h */,
 			);
 			name = Plugins;
 			path = "GovscoreGlobal/Plugins";
@@ -408,6 +431,7 @@
 				0F55E291BE554DBF8890CF1B /* CDVGlobalization.m in Sources */,
 				8B91EA32BFB24C7EA2CE5028 /* CDVConnection.m in Sources */,
 				A8B0F8935D3E40B39A3D79EC /* CDVReachability.m in Sources */,
+				06C08D79A95344D5A70AAC56 /* PushNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +474,10 @@
 				);
 				PRODUCT_NAME = "GovscoreGlobal";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GovscoreGlobal/Plugins/com.pushwoosh.plugins.pushwoosh\"",
+				);
 			};
 			name = Debug;
 		};
@@ -479,6 +507,10 @@
 				);
 				PRODUCT_NAME = "GovscoreGlobal";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GovscoreGlobal/Plugins/com.pushwoosh.plugins.pushwoosh\"",
+				);
 			};
 			name = Release;
 		};

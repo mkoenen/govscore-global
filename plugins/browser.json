@@ -15,6 +15,9 @@
         },
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
+        },
+        "com.pushwoosh.plugins.pushwoosh": {
+            "PACKAGE_NAME": "tv.loudfeed.govscoreglobal"
         }
     },
     "dependent_plugins": {}

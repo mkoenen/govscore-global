@@ -28,6 +28,13 @@ module.exports = [
         "clobbers": [
             "Connection"
         ]
+    },
+    {
+        "file": "plugins/com.pushwoosh.plugins.pushwoosh/www/PushNotification.js",
+        "id": "com.pushwoosh.plugins.pushwoosh.PushNotification",
+        "clobbers": [
+            "plugins.pushNotification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -35,7 +42,8 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.0.0",
     "org.apache.cordova.globalization": "0.3.4",
-    "cordova-plugin-network-information": "1.0.2-dev"
+    "cordova-plugin-network-information": "1.0.2-dev",
+    "com.pushwoosh.plugins.pushwoosh": "3.5.4"
 }
 // BOTTOM OF METADATA
 });
