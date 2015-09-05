@@ -1,12 +1,12 @@
 /* Events -----------------------------------------*/
 function init(){
     document.addEventListener("online", onOnline, true);
-    document.addEventListener("deviceready", onOnline, true); 
+    document.addEventListener("deviceready", onOnline, true);
+    document.addEventListener("deviceready", checkLanguage, false); 
     document.addEventListener("deviceready", showResults, false);
     document.addEventListener("deviceready", setbuttons, false);
-    //document.addEventListener("deviceready", initPushwoosh, true);
+    document.addEventListener("deviceready", initPushwoosh, true);
     document.addEventListener("deviceready", showResultsButtons, false);
-    document.addEventListener("deviceready", onOnline, true);
 }
 
 
@@ -45,7 +45,17 @@ function translatenow(mylang) {
         $.i18n.load(i18n_dict);
     }
 
-    $('div#example1')._t('Example 1');
+    $('div#about')._t('about');
+    $('div#about-text')._t('about-text');
+    $('div#step1')._t('step1');
+    $('div#step2')._t('step2');
+    $('div#step3')._t('step3');
+    $('div#step4')._t('step4');
+    $('div#step5')._t('step5');
+    $('div#step7')._t('step7');
+    $('div#step8')._t('step8');
+    $('div#step-last')._t('step-last');
+    
   
 }
 

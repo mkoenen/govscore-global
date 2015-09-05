@@ -1,12 +1,12 @@
 /* Events -----------------------------------------*/
 function init(){
     document.addEventListener("online", onOnline, true);
-    document.addEventListener("deviceready", onOnline, true); 
+    document.addEventListener("deviceready", onOnline, true);
+    document.addEventListener("deviceready", checkLanguage, false); 
     document.addEventListener("deviceready", showResults, false);
     document.addEventListener("deviceready", setbuttons, false);
-    //document.addEventListener("deviceready", initPushwoosh, true);
+    document.addEventListener("deviceready", initPushwoosh, true);
     document.addEventListener("deviceready", showResultsButtons, false);
-    document.addEventListener("deviceready", onOnline, true);
 }
 
 
