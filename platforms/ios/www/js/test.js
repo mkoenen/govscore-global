@@ -1,53 +1,56 @@
-//listen for click events      
-function setbuttons(btn,func) {
+//saving the adv gs
 
-    document.getElementById('btnStore').addEventListener('click', function(){
-    	function validate(a,b);
-    });
-    document.getElementById('ag1Store').addEventListener('click', function({
-    	adv_validate(ag1data, 24, 0, ag1savelocal);
-    }));
-    document.getElementById('ag2Store').addEventListener('click', function(){
-    	adv_validate(ag2data, 24, 24);
+function adv_savelocal( dataset, num1, num2, conn )
+adv_savelocal(ag1data, 1, 24, cag1);
+adv_savelocal(ag2data, 25, 48, cag2);
+adv_savelocal(ag3data, 49, 60, cag3);
+adv_savelocal(ag4data, 61, 84, cag4);
+adv_savelocal(ag5data, 85, 100, cag5);
+function adv_savelocal( dataset, num1, num2, conn ) {
 
-    });
-    document.getElementById('ag3Store').addEventListener('click', function({
-    	adv_validate(ag3data, 12, 48);
-    }));
-    document.getElementById('ag4Store').addEventListener('click', function(){
-    	adv_validate(ag4data, 24, 60);
-    });
-    document.getElementById('ag5Store').addEventListener('click', function({
-    	adv_validate(ag5data, 16, 84);
-    }));
+    var date;
 
+    gsdata = localStorage.getObject('gsdata');
+
+    date = formatDate(new Date());
+
+    dataset = { 'date':date, 'email': gsdata.email, 'answers': [-1]};
+    dataset = getinputs(dataset, num1, num2, "ag");
+
+    localStorage.setObject('dataset', dataset);
+
+    calcResults()
+    //now that everything is saved check the connection
+    checkConnection("conn");
+    
 }
+function ag2savelocal() {
 
-function adv_validate( savedData, length, keyaug, savefunc){
-    if(savedData){
+    var ag2date;
 
-        alreadySaved();
+    gsdata = localStorage.getObject('gsdata');
 
-    }else if(gsdata = null){
+    ag2date = formatDate(new Date());
 
-        gsFirst();
+    ag2data = { 'ag2date':ag2date, 'email': gsdata.email, 'answers': [-1]};
+    ag2data = getinputs(ag2data,25,48,"ag");
 
-    }else{
-      var i, key, value;
-      //loop through the entries, grab value and store in array
-      for(i=1; i<=length; i++) {
-          key = "'ag" + (i+keyaug) +"'";
-          value = $('input[name = ' + key + ']:checked').val();
-          if(value === "" || value == undefined) {
-              navigator.notification.alert( "Please answer all questions" );
-              event.preventDefault();
-              return false;
-          }
-      }
+    localStorage.setObject('ag2data', ag2data);
 
-      savefunc();
-
-      } 
+    calcResults()
+    //now that everything is saved check the connection
+    checkConnection("cag2");
+    
 }
-
+function advSaveServer(dataset, saved) {
+          
+    ag1data = localStorage.getObject('ag1data');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag1data, "ag1Saved");
+        
+}
+function ag2saveServer() {
  
+    ag2data = localStorage.getObject('ag2data');
+    saveToServer("http://mshlmg.wpengine.com/store-ag.php", ag2data, "ag2Saved");
+        
+}

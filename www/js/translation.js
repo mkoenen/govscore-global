@@ -11,7 +11,7 @@ i18n_dict = {
     "step6"       : "Answer the Advanced GovScore questions on your app for improvement areas identified for your organization.",
     "step7"       : "View your results on your phone.",
     "step8"       : "Examine the combined Advanced GovScore result of all evaluators of your organization on govscoreapp.net and get further individualized analysis and recommendations for improvement. See how your organizations results compares to the aggregate results of all organizations.",
-    "step-last"   : "Good governance leads to effective and efficient management of people, money, medicines and information. Sound management in turn facilitates the work of doctors, nurses, other clinicians and health workers and enables them to provide safe, timely, effective, and efficient care and services that are respectful of and responsive to individual patient and health service user preferences, needs, and values. Good governance essentially assures sound management which in turn enables reliable service delivery and higher organizational performance.",
+    "step-last"   : "Good governance leads to effective and efficient management of people, money, medicines and information. Sound management in turn facilitates the work of doctors, nurses, other clinicians and health workers and enables them to provide safe, timely, effective, and efficient care and services that are respectful of and responsive to individual patient and health service user preferences, needs, and values. Good governance essentially assures sound management which in turn enables reliable service delivery and higher organizational performance."/*,
     "name"        : "Name",
     "email"       : "Email",
     "email2"      : "Confirm Email",
@@ -143,10 +143,10 @@ i18n_dict = {
     "ag97"         : "",
     "ag98"         : "",
     "ag99"         : "",
-    "ag100"        : "",
+    "ag100"        : ""*/
   };
 
-  i18n_dict_fr = {
+ i18n_dict_fr = {
     "about"       : "À propos de GovScore",
     "about-text"  : "GovScore est un outil servant à évaluer la maturité des structures de gouvernance et a été conçu pour aider les chefs de file et les responsables du secteur de la santé à obtenir de meilleurs résultats organisationnels par le biais d'évaluations périodiques et d'améliorations continues de leurs modes de gouvernance.",
     "steps"       : "Comment utiliser GovScore",
@@ -158,7 +158,7 @@ i18n_dict = {
     "step6"       : "Répondez aux questions plus complexes de GovScore sur l'application concernant les aspects à améliorer ayant été établis pour votre organisation.",
     "step7"       : "Visualisez vos résultats préliminaires sur votre téléphone.",
     "step8"       : "Examinez le résultat combiné et approfondi de tous les évaluateurs de votre organisation sur govscoreapp.net et bénéficiez d'une analyse et de recommandations personnalisées concernant les prochaines démarches à entreprendre en vue d'une amélioration. Voyez où se situe votre organisation en comparant ses résultats aux résultats agrégés de toutes les organisations.",
-    "step-last"   : "Une bonne gouvernance aboutit à une gestion plus efficace et plus performante des individus, des fonds, des médicaments et des informations. Une gestion rigoureuse facilite le travail des médecins, des infirmiers, des agents du personnel clinique et des prestataires de soins. Elle permet de dispenser des soins sûrs, efficaces et performants dans des délais raisonnables, ainsi que des services respectueux et à l'écoute des patients et des utilisateurs des services de santé, pour satisfaire leurs préférences et leurs besoins et s'accorder avec leurs valeurs. Une bonne gouvernance garantit pour l'essentiel l'adoption d'un mode de gestion sain qui, par la suite, aboutit à une prestation de services fiables et à une meilleure performance organisationnelle.",
+    "step-last"   : "Une bonne gouvernance aboutit à une gestion plus efficace et plus performante des individus, des fonds, des médicaments et des informations. Une gestion rigoureuse facilite le travail des médecins, des infirmiers, des agents du personnel clinique et des prestataires de soins. Elle permet de dispenser des soins sûrs, efficaces et performants dans des délais raisonnables, ainsi que des services respectueux et à l'écoute des patients et des utilisateurs des services de santé, pour satisfaire leurs préférences et leurs besoins et s'accorder avec leurs valeurs. Une bonne gouvernance garantit pour l'essentiel l'adoption d'un mode de gestion sain qui, par la suite, aboutit à une prestation de services fiables et à une meilleure performance organisationnelle."/*,
     "name"        : "",
     "email"       : "",
     "email2"      : "",
@@ -288,11 +288,10 @@ i18n_dict = {
     "ag97"         : "",
     "ag98"         : "",
     "ag99"         : "",
-    "ag100"        : "",
-    
+    "ag100"        : ""*/
   };
 
-  i18n_dict_sp = {
+  i18n_dict_es = {/*
     "about"       : "",
     "about-text"  : "",
     "steps"       : "",
@@ -432,10 +431,10 @@ i18n_dict = {
     "ag97"         : "",
     "ag98"         : "",
     "ag99"         : "",
-    "ag100"        : "",
+    "ag100"        : "",*/
     
   };
-  i18n_dict_po = {
+  i18n_dict_pt = {
     "about"       : "Sobre",
     "about-text"  : "GovScore est un outil servant à évaluer la maturité des structures de gouvernance et a été conçu pour aider les chefs de file et les responsables du secteur de la santé à obtenir de meilleurs résultats organisationnels par le biais d'évaluations périodiques et d'améliorations continues de leurs modes de gouvernance.",
     "steps"       : "Passos para utilização do GovScore",
@@ -447,7 +446,7 @@ i18n_dict = {
     "step6"       : "Responda às perguntas Advanced GovScore da aplicação para as “áreas a aperfeiçoar” identificadas para a sua organização.",
     "step7"       : "Visualize os resultados iniciais no seu telefone.",
     "step8"       : "Examine o resultado combinado Advanced GovScore de todos os avaliadores da sua organização em govscoreapp.net e obtenha mais análises e recomendações individualizadas para aperfeiçoamento. Veja como os resultados da sua organização se comparam aos resultados agregados de todas as organizações.",
-    "step-last"   : "A boa governação leva a uma gestão eficaz e eficiente de pessoas, dinheiro, medicamentos e informação. A boa gestão facilita o trabalho dos médicos, enfermeiros, outros clínicos e profissionais de saúde. Permite-lhes prestar cuidados e serviços seguros, atempados, efectivos e eficientes que respeitam e respondem às preferências, necessidades e valores dos pacientes individuais e dos utilizadores dos serviços de saúde. A boa governação assegura essencialmente uma boa gestão, o que, por sua vez, permite a prestação de serviços de confiança e desempenho organizacional superior.",
+    "step-last"   : "A boa governação leva a uma gestão eficaz e eficiente de pessoas, dinheiro, medicamentos e informação. A boa gestão facilita o trabalho dos médicos, enfermeiros, outros clínicos e profissionais de saúde. Permite-lhes prestar cuidados e serviços seguros, atempados, efectivos e eficientes que respeitam e respondem às preferências, necessidades e valores dos pacientes individuais e dos utilizadores dos serviços de saúde. A boa governação assegura essencialmente uma boa gestão, o que, por sua vez, permite a prestação de serviços de confiança e desempenho organizacional superior."/*,
     "gs1"         : "",
     "gs2"         : "",
     "gs3"         : "",
@@ -570,6 +569,6 @@ i18n_dict = {
     "ag97"         : "",
     "ag98"         : "",
     "ag99"         : "",
-    "ag100"        : "",
+    "ag100"        : "",*/
     
   };
