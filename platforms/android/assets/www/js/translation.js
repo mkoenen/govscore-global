@@ -434,7 +434,7 @@ i18n_dict = {
     "ag100"        : "",*/
     
   };
-  i18n_dict_pt = {/*
+  i18n_dict_pt = {
     "about"       : "Sobre",
     "about-text"  : "GovScore est un outil servant à évaluer la maturité des structures de gouvernance et a été conçu pour aider les chefs de file et les responsables du secteur de la santé à obtenir de meilleurs résultats organisationnels par le biais d'évaluations périodiques et d'améliorations continues de leurs modes de gouvernance.",
     "steps"       : "Passos para utilização do GovScore",
@@ -446,7 +446,7 @@ i18n_dict = {
     "step6"       : "Responda às perguntas Advanced GovScore da aplicação para as “áreas a aperfeiçoar” identificadas para a sua organização.",
     "step7"       : "Visualize os resultados iniciais no seu telefone.",
     "step8"       : "Examine o resultado combinado Advanced GovScore de todos os avaliadores da sua organização em govscoreapp.net e obtenha mais análises e recomendações individualizadas para aperfeiçoamento. Veja como os resultados da sua organização se comparam aos resultados agregados de todas as organizações.",
-    "step-last"   : "A boa governação leva a uma gestão eficaz e eficiente de pessoas, dinheiro, medicamentos e informação. A boa gestão facilita o trabalho dos médicos, enfermeiros, outros clínicos e profissionais de saúde. Permite-lhes prestar cuidados e serviços seguros, atempados, efectivos e eficientes que respeitam e respondem às preferências, necessidades e valores dos pacientes individuais e dos utilizadores dos serviços de saúde. A boa governação assegura essencialmente uma boa gestão, o que, por sua vez, permite a prestação de serviços de confiança e desempenho organizacional superior.",
+    "step-last"   : "A boa governação leva a uma gestão eficaz e eficiente de pessoas, dinheiro, medicamentos e informação. A boa gestão facilita o trabalho dos médicos, enfermeiros, outros clínicos e profissionais de saúde. Permite-lhes prestar cuidados e serviços seguros, atempados, efectivos e eficientes que respeitam e respondem às preferências, necessidades e valores dos pacientes individuais e dos utilizadores dos serviços de saúde. A boa governação assegura essencialmente uma boa gestão, o que, por sua vez, permite a prestação de serviços de confiança e desempenho organizacional superior."/*,
     "gs1"         : "",
     "gs2"         : "",
     "gs3"         : "",

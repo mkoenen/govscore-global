@@ -23,12 +23,9 @@ function setbuttons() {
 /* Globalization ---------------------------------------*/
 
 function checkLanguage() {
-  alert("going to check to language");
       navigator.globalization.getPreferredLanguage(
         function (language) {
             var lang = language.value;
-            alert('language: ' + lang + '\n');
-            console.log(lang);
             translatenow(lang);
         },
         function () {alert('Error getting language\n');}
@@ -36,21 +33,38 @@ function checkLanguage() {
     }
 
 function translatenow(mylang) { 
+  
+
+
 
     alert('language: ' + mylang + ' again\n');
 
     if(mylang.indexOf("fr") == 0 ) {
+      $.getScript("js/i18n/translation_fr.js", function(){
         $.i18n.load(i18n_dict_fr);
+        map_all();
+      });
     }else if(mylang.indexOf("es") == 0 ) {
+      $.getScript("js/i18n/translation_es.js", function(){
         $.i18n.load(i18n_dict_es);
-    }else if(mylang.indexOf("pt-BR") == 0 ) {
+        map_all();
+      });
+    }else if(mylang.indexOf("pt") == 0 ) {
+      $.getScript("js/i18n/translation_pt.js", function(){
         $.i18n.load(i18n_dict_pt);
+        map_all();
+      });
     }else{
+      $.getScript("js/i18n/translation_en.js", function(){
         $.i18n.load(i18n_dict);
+        map_all();
+        
+      });
     }
 
+function map_all(){
     $('h2#about')._t('about');
-   $('p#about-text')._t('about-text');
+    $('p#about-text')._t('about-text');
     $('li#step1')._t('step1');
     $('li#step2')._t('step2');
     $('li#step3')._t('step3');
@@ -59,7 +73,8 @@ function translatenow(mylang) {
     $('li#step6')._t('step6');
     $('li#step7')._t('step7');
     $('li#step8')._t('step8');
-    $('p#step-last')._t('step-last'); /*
+    $('p#step-last')._t('step-last');
+     /*
     $('#name')._t('name');
     $('#email')._t('email');
     $('#email2')._t('email2');
@@ -192,7 +207,7 @@ function translatenow(mylang) {
     $('#ag98')._t('ag98');
     $('#ag99')._t('ag99');
     $('#ag100')._t('ag100');*/  
-
+    }
 }
 
 /* Form Validation -------------------------------------*/
