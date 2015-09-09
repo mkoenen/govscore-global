@@ -40,7 +40,7 @@ i18n_dict_fr = {
     "gs22"        : "22. Les membres de l'instance dirigeante entreprennent les démarches nécessaires pour gagner la confiance de parties prenantes internes et externes essentielles.",
     "gs23"        : "23. Les membres de l'instance dirigeante soutiennent activement les activités de l'organisation en matière de mobilisation de ressources et de levée de fonds.",
     "gs24"        : "24. L'instance dirigeante utilise sa capacité de plaidoyer au nom de l'organisation comme critère dans le processus de sélection de ses nouveaux membres. Les membres actuels de l'instance dirigeante ont déjà été sélectionnés sur la base de cette politique.",
-    "gs25"        : "25. L'instance dirigeante favorise une culture organisationnelle motivant le personnel de santé et les employés."
+    "gs25"        : "25. L'instance dirigeante favorise une culture organisationnelle motivant le personnel de santé et les employés.",
     "pick-area"   : "Choisissez le domaine de pratique que vous souhaitez évaluer:",
     "pick-area-adv": "Vous pouvez évaluer autant de domaines que vous le souhaitez.",
     "ag1"         : "a. Les chefs de file en matière de gouvernance et de gestion partagent des informations avec les parties prenantes, les membres de la communauté, les professionnels de la santé et les prestataires de soins.",
@@ -91,7 +91,7 @@ i18n_dict_fr = {
     "ag46"        : "b. Les responsables en matière de gouvernance et de gestion s'entretiennent avec les femmes et les hommes occupant des fonctions dans ces domaines, le personnel clinique masculin et féminin, les prestataires de soins masculins et féminins, les utilisateurs et utilisatrices des services de soins ou encore les groupements féminins avant de prendre leurs décisions.",
     "ag47"        : "c. Les responsables en matière de gouvernance et de gestion envisagent ce qu'impliquent leurs décisions sur les utilisateurs des services de santé dans leur ensemble puis en prenant les femmes et les hommes séparément, ainsi que sur le personnel de santé dans son ensemble avant de traiter les prestataires féminins et masculins séparément.",
     "ag48"        : "d. Le niveau de performance est mesuré et rapporté à l'aide de données désagrégées par genre. Les données agrégées et les données désagrégées par sexe sont prises en compte avant de prendre des décisions.",
-    "ag49"        : "a. Les responsables en matière de gouvernance et de gestion ont développé l'orientation stratégique et la vision de l'organisation."
+    "ag49"        : "a. Les responsables en matière de gouvernance et de gestion ont développé l'orientation stratégique et la vision de l'organisation.",
     "ag50"        : "b. Les responsables en matière de gouvernance et de gestion ont défini une stratégie et un plan d'action accompagnés d'objectifs mesurables pour faciliter la réalisation de cette vision.",
     "ag51"        : "c. Les responsables en matière de gouvernance et de gestion ont obtenu des ressources et les ont affectées afin de mettre en œuvre le plan d'action et de réaliser la vision.",
     "ag52"        : "d. Les responsables en matière de gouvernance et de gestion ne se préoccupent pas des opérations journalières et des questions de gestion. Ils ont désigné des responsables et ils prennent des décisions pour accomplir le plan d'action stratégique.",
@@ -143,4 +143,4 @@ i18n_dict_fr = {
     "ag98"        : "b. L'instance dirigeante ou les gouvernants utilisent le processus d'évaluation pour déterminer des perspectives d'amélioration spécifiques, définir des objectifs spécifiques en matière d'amélioration de la performance et les inclure dans le plan d'amélioration.",
     "ag99"        : "c. L'instance dirigeante ou les gouvernants améliorent continuellement leur performance en remédiant à leurs lacunes soulignées dans l'évaluation.",
     "ag100"       : "d. L'instance dirigeante ou les gouvernants utilisent la formation au domaine de la gouvernance dans le but d'améliorer la performance de l'organisation."
-  };
+    };
