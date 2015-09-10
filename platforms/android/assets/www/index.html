@@ -21,7 +21,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>How To</h1>
+            <h1 id="how-to">.How To</h1>
         </div><!-- header -->
 
         <div data-role="content">
@@ -53,8 +53,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore"  id="adv">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -68,24 +68,24 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a> 
-            <h1>Govscore</h1>
+            <h1 id="gs-header">.Govscore</h1>
         </div><!-- header -->
 
         <div data-role="content">
             <article>
-                <a href="#govscore-results" id="govscore-results2" class="ui-btn">Assessment Completed<br />See Your Results</a>
+                <a href="#govscore-results" id="govscore-results2" class="ui-btn">.Assessment Completed<br />See Your Results</a>
                 
                 <form name="gsForm" id="gsForm"> 
-                    <label id="name" for="username" class="ui-hidden-accessible">name</label>
+                    <label id="name" for="username" class="ui-hidden-accessible">Name</label>
                         <input type="text" id="username" name="username" placeholder="First name followed by surname" required />
 
                     <label id="email" for="email" class="ui-hidden-accessible"></label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
                     <label id-"email2" for="email2" class="ui-hidden-accessible"></label>
                         <input type="email" id="email2" name="email2" placeholder="Enter Email Again" required />
-                    <label id="organization" for="organization" class="select ui-hidden-accessible"></label>
+                    <label for="organization" class="select ui-hidden-accessible">Organization</label>
                         <select name="organization" id="organization" data-native-menu="true">
-                            <option id="select-org" value="-1"></option>
+                            <option value="-1">Select Your Organization</option>
                             <option value="6027">African Institute of Health Leadership and Management</option>
                             <option value="6009">AMREF Health Africa</option>
                             <option value="6024">BroadReach Healthcare</option>
@@ -485,7 +485,7 @@
                     </fieldset>
                     <br />
                         <p>Please check your answers. You can only submit this form once.</p>
-                        <button class="ui-btn ui-shadow" id="btnStore">Submit</button>
+                        <button class="ui-btn ui-shadow" id="btnStore">.Submit</button>
                         <!--<button id="retrieveData">Retrieve Data</button>-->
                         
                     <!--<div id="result"></div>-->
@@ -496,19 +496,19 @@
         <div data-role="footer" data-position="fixed">
             <div data-role="popup" id="popupBasic" data-icon="delete">
                 <div id="legend">
-                    <h2>Legend:</h2>
-                        <p><img src="img/empty.png" /><span>Not at all</span></p>
-                        <p><img src="img/one-quarter.png" /><span>Minimally</span></p>
-                        <p><img src="img/half.png" /><span>Partly</span></p>
-                        <p><img src="img/three-quarter.png" /><span>Mostly</span></p>
-                        <p><img src="img/full.png" /><span>Completely</span></p> 
+                    <h2 id="legend-header">.Legend</h2>
+                        <p><img src="img/empty.png" /><span id="not-at-all">.Not at all</span></p>
+                        <p><img src="img/one-quarter.png" /><span id="minimally">.Minimally</span></p>
+                        <p><img src="img/half.png" /><span id="partly">.Partly</span></p>
+                        <p><img src="img/three-quarter.png" /><span id="mostly">.Mostly</span></p>
+                        <p><img src="img/full.png" /><span id="completely">.Completely</span></p> 
                     </div>
                 </div>
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore" class="ui-btn-active ui-state-persist">Govscore</a></li>
-                    <li><a href="#advanced-govscore">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" id="adv2">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res2">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -523,7 +523,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Advanced Govscore</h1>
+            <h1 id="adv-header1">.Advanced Govscore</h1>
         </div><!-- header -->
 
         <div data-role="content">
@@ -533,7 +533,7 @@
 
                 <a href="#cultivating-accountability" id="acc-btn" class="ui-btn">Cultivating Accountability</a>
                 <a href="#engaging-stakeholders" id="stake-btn" class="ui-btn">Engaging Stakeholders</a>
-                <a href="#setting-shared-strategic-direction" id="dir-btn" class="ui-btn">Setting Shared Strategic Direction</a>
+                <a href="#setting-shared-strategic-direction" id="dir-btn" class="ui-btn">Shared Strategic Direction</a>
                 <a href="#stewarding-resources" id="res-btn" class="ui-btn">Stewarding Resources</a>
                 <a href="#continuous-governance-enhancement" id="enh-btn" class="ui-btn">Continuous Governance Enhancement</a> 
             </article>       
@@ -543,8 +543,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist" id="adv3">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res3">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -559,7 +559,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Cultivating Accountability</h1>
+            <h1 id="accountability">.Cultivating Accountability</h1>
         </div>
 
         <div data-role="content">
@@ -811,8 +811,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist" id="adv4">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res4">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -826,7 +826,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Engaging Stakeholders</h1>
+            <h1 id="stakeholders">.Engaging Stakeholders</h1>
         </div><!-- header -->
 
         <div data-role="content">
@@ -1080,8 +1080,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist" id="adv5">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res5">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -1095,7 +1095,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Setting Shared Strategic Direction</h1>
+            <h1 id="direction">.Shared Strategic Direction</h1>
         </div><!-- header -->
 
         <div data-role="content">
@@ -1218,7 +1218,7 @@
                 </form>
                 <br />
                 <p>Please check your answers. You can only submit this form once.</p>
-                <button class="ui-btn ui-shadow" id="ag3Store">Submit</button>
+                <button class="ui-btn ui-shadow" id="ag3Store">.Submit</button>
                 
             </article>  
 
@@ -1228,8 +1228,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist" id="adv6">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res6">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -1244,7 +1244,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Stewarding Resources</h1>
+            <h1 id="resources">.Stewarding Resources</h1>
         </div><!-- header -->
 
         <div data-role="content">
@@ -1485,7 +1485,7 @@
                 </form>
                 <br />
                 <p>Please check your answers. You can only submit this form once.</p>
-                <button class="ui-btn ui-shadow" id="ag4Store">Submit</button>
+                <button class="ui-btn ui-shadow" id="ag4Store">.Submit</button>
                 
             </article>
 
@@ -1495,8 +1495,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist" id="adv7">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res7">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -1510,7 +1510,7 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Continuous Governance Enhancement</h1>
+            <h1 id="enhancement">.Continuous Governance Enhancement</h1>
         </div><!-- header -->
 
         <div data-role="content">
@@ -1673,7 +1673,7 @@
                 </form>
                 <br />
                 <p>Please check your answers. You can only submit this form once.</p>
-                <button class="ui-btn ui-shadow" id="ag5Store">Submit</button>
+                <button class="ui-btn ui-shadow" id="ag5Store">.Submit</button>
                 
             </article>
 
@@ -1683,8 +1683,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist">Advanced</a></li>
-                    <li><a href="#govscore-results">Results</a></li>
+                    <li><a href="#advanced-govscore" class="ui-btn-active ui-state-persist" id="adv8">.Advanced</a></li>
+                    <li><a href="#govscore-results" id="res8">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -1698,12 +1698,13 @@
 
         <div data-role="header">
             <a href="#home" class="ui-nodisc-icon ui-btn ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-home ui-btn-icon-notext">home</a>
-            <h1>Govscore Results</h1>
+            <h1 id="gs-results">.Govscore Results</h1>
         </div><!-- header -->
 
         <div data-role="content">
             <article>
-                <div id="gs-results">
+                <div>
+                   <p>No results available at this time.</p>
 
                     
 
@@ -1715,8 +1716,8 @@
              <div data-role="navbar">
                 <ul>
                     <li><a href="#govscore">Govscore</a></li>
-                    <li><a href="#advanced-govscore">Advanced</a></li>
-                    <li><a href="#govscore-results" class="ui-btn-active ui-state-persist">Results</a></li>
+                    <li><a href="#advanced-govscore" id="adv9">.Advanced</a></li>
+                    <li><a href="#govscore-results" class="ui-btn-active ui-state-persist" id="res9">.Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- footer -->
@@ -1729,7 +1730,7 @@
     <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="lib/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="lib/jquery.i18n.min.js"></script>
-    <!--<script  type="text/javascript" src="js/translation.js"></script>-->
+    <script  type="text/javascript" src="js/i18n/translation_en.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 

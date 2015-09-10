@@ -1,4 +1,5 @@
 i18n_dict = {
+
     "about"       : "About",
     "about-text"  : "GovScore is a governance maturity assessment tool designed to assist health leaders and managers improve their organizational performance through periodic assessment and continuous enhancement of their governance.",
     "steps"       : "Steps",
@@ -143,30 +144,31 @@ i18n_dict = {
     "ag98"         : "b. The governing body or the leaders who govern use the assessment process to identify specific improvement opportunities, define specific performance improvement goals, and include them in the plan for improvement.",
     "ag99"         : "c. The governing body or the leaders who govern continuously improve their own performance by working on their weak areas noticed in the assessment.",
     "ag100"        : "d. The governing body or the leaders who govern use their governance education in improving the organization’s performance.",
-    "no-results"   : "No results available at this time.",
-    "level-1"      : "Clear need of governance development (first level/4).",
-    "level-2"      : "Basic level of governance (second level/4)",
-    "level-3"      : "Goal-Driven and dynamic governance (third level/4)",
-    "level-4"      : "Transformational governance (highest level/4)",
-    "gov-assess"   : "Govscore Assessment",
-    "you-assessed"  : "You assessed your organization as follows: ",
+    /* Legend */
+    "legend-header" : "Legend", 
+    "not-at-all"    : "Not at all",
+    "minimally"     : "Minimally",
+    "partly"        : "Partly",
+    "mostly"        : "Mostly",
+    "completely"    : "Completely", 
+    /* Headers */
+    "how-to"        : "How to",
+    "gs-header"     : "Govscore",
+    "adv-header"    : "Advanced Govscore",
     "accountability" : "Cultivating Accountability",
     "stakeholders"  : "Engaging Stakeholders",
     "direction"     : "Shared Strategic Direction",
     "resources"     : "Stewarding Resources",
     "enhancement"   : "Continuous Governance Enhancement",
-    "out24"         : "out of 24 points",
-    "out16"         : "out of 16 points",
-    "out12"         : "out of 12 points",
-    "out100"        : "out of 100 points",
-    "total-score"   : "Total Score",
-    "placement"     : "This places your organization at:",
-    "learn-more"    : "Learn more at <a href=\"http://govscoreapp.net/\">govscoreapp.net</a>",
-    "enter-code"    : "Enter the organization code ",
-    "see-more"      : " to see how your organization was evaluated collectively.",
-    "place-at"      : "This places your organization at:",
-    "prev-finish"   : "You previously finished this assessment. Please check your results.",
-    "all-comp"      : "Already Completed",
-    "full-name"     : "Please enter your full name!"
-    /*"no-match"      : ""*/
+    "gs-results"    : "Govscore Results",
+    /* Bottom Nav */
+    "adv"           : "Advanced",
+    "res"           : "Results",
+    /* Buttons */
+    "govscore-results" : "Assessment Completed<br>See Your Results",
+    "submit"        : "Submit",
+    /* Messages */
+   
+   
+    
   };
