@@ -80,7 +80,6 @@ function map_all(){
     $('#name-input')._t('name-input');
     $('#email')._t('email');
     $('#email2')._t('email2');
-    $('#organization')._t('organization');
     $('#select-org')._t('select-org');
     $('#gs1')._t('gs1');
     $('#gs2')._t('gs2');
@@ -226,7 +225,7 @@ function map_all(){
     $('#direction')._t('direction');
     $('#resources')._t('resources');
     $('#enhancement')._t('enhancement');
-    $('#gs-results')._t('gs-results');
+    $('#gs-res-header')._t('gs-res-header');
     /* Bottom Nav */
     $('#adv')._t('adv');
     $('#res')._t('res');
@@ -254,8 +253,15 @@ function map_all(){
     $('#ag3Store')._t('submit');
     $('#ag4Store')._t('submit');
     $('#ag5Store')._t('submit');
-    
-
+    $('#gs-assessment')._t('gs-assessment');
+    $('#your-assessment')._t('your-assessment');
+    $('#c-a')._t('accountability');
+    $('#stake')._t('stakeholders');
+    $('#dir')._t('direction');
+    $('#res')._t('resources');
+    $('#enh')._t('enhancement');
+    $('#total')._t('total');
+    $('#')._t('');
   }
 }
 
@@ -750,13 +756,13 @@ function calcResults() {
         mlevel = findLevel(totalScore);
 
         //list each area with the score
-        res = "<h2>Govscore Assessment</h2><p>ou assessed your organization as follows: </p>";
-        res += "<div id=\"accountability\"><h3>Cultivating Accountability</h3><p>" + accScore + " <span>out of 24 points</span> - " + accPercent + "%.</p></div>";
-        res += "<div id=\"stakeholders\"><h3>Engaging Stakeholders</h3><p>" + stakeScore + " <span>out of 12 points</span> - " + stakePercent + "%.</p></div>";
-        res += "<div id=\"direction\"><h3>Shared Strategic Direction</h3><p>" + dirScore + " <span>out of 16 points</span> - " + dirPercent + "%.</p></div>";
-        res += "<div id=\"resources\"><h3>Stewarding Resources</h3><p>" + resScore + " <span>out of 24 points</span> - " + resPercent + "%.</p></div>";
-        res += "<div id=\"enhancement\"><h3>Continuous Governance Enhancement</h3><p>" + enhScore + " <span>out of 24 points</span> - " + enhPercent + "%.</p></div>";
-        res += "<div id=\"total\"><h3>Total Score</h3><p>" + totalScore +" <span>out of 100 points</span></p><p>This places your organization at:</p><p class=\"level\">" + mlevel + "</p></div>";
+        res = "<h2 id='gs-assessment'>.Govscore Assessment</h2><p id='your-assessment'>.you assessed your organization a follows: </p>";
+        res += "<div id=\"accountability\"><h3 id='c-a'>.Cultivating Accountability</h3><p>" + accScore + " <span>out of 24 points</span> - " + accPercent + "%.</p></div>";
+        res += "<div id=\"stakeholders\"><h3 id='stake'>.Engaging Stakeholders</h3><p>" + stakeScore + " <span>out of 12 points</span> - " + stakePercent + "%.</p></div>";
+        res += "<div id=\"direction\"><h3 id='dir'>.Shared Strategic Direction</h3><p>" + dirScore + " <span>out of 16 points</span> - " + dirPercent + "%.</p></div>";
+        res += "<div id=\"resources\"><h3 id='res'>.Stewarding Resources</h3><p>" + resScore + " <span>out of 24 points</span> - " + resPercent + "%.</p></div>";
+        res += "<div id=\"enhancement\"><h3 id='enh'>.Continuous Governance Enhancement</h3><p>" + enhScore + " <span>out of 24 points</span> - " + enhPercent + "%.</p></div>";
+        res += "<div id=\"total\"><h3 id='total'>.Total Score</h3><p>" + totalScore +" <span>out of 100 points</span></p><p>This places your organization at:</p><p class=\"level\">" + mlevel + "</p></div>";
         res += "<div id=\"link\"><p>Learn more at <a href=\"http://govscoreapp.net/\">govscoreapp.net</a></p><p><span>Enter the organization code </span> " + gsdata.organization + " <span> to see how your organization was evaluated collectively.</span></p></div>";
         //document.getElementById('gs-results').innerHTML = res;
         

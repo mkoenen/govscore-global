@@ -160,7 +160,7 @@ i18n_dict = {
     "direction"     : "Shared Strategic Direction",
     "resources"     : "Stewarding Resources",
     "enhancement"   : "Continuous Governance Enhancement",
-    "gs-results"    : "Govscore Results",
+    "gs-res-header"    : "Govscore Results",
     /* Bottom Nav */
     "adv"           : "Advanced",
     "res"           : "Results",
@@ -168,7 +168,8 @@ i18n_dict = {
     "govscore-results" : "Assessment Completed<br>See Your Results",
     "submit"        : "Submit",
     /* Messages */
-   
-   
-    
+    /* Results*/
+    "gs-assessment" : "Govscore Assessment",
+    "total"         : "Total Score",
+      
   };
