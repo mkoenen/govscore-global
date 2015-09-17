@@ -28,6 +28,7 @@ function checkLanguage() {
         function (language) {
             var lang = language.value;
             translatenow(lang);
+            return lang
         },
         function () {alert('Error getting language\n');}
       );*/
@@ -227,8 +228,8 @@ function map_all(){
     $('#enhancement')._t('enhancement');
     $('#gs-res-header')._t('gs-res-header');
     /* Bottom Nav */
-    $('#adv')._t('adv');
-    $('#res')._t('res');
+    $('#adv1')._t('adv');
+    $('#res1')._t('res');
     $('#adv2')._t('adv');
     $('#adv3')._t('adv');
     $('#adv4')._t('adv');
@@ -253,15 +254,24 @@ function map_all(){
     $('#ag3Store')._t('submit');
     $('#ag4Store')._t('submit');
     $('#ag5Store')._t('submit');
-    $('#gs-assessment')._t('gs-assessment');
-    $('#your-assessment')._t('your-assessment');
-    $('#c-a')._t('accountability');
-    $('#stake')._t('stakeholders');
-    $('#dir')._t('direction');
-    $('#res')._t('resources');
-    $('#enh')._t('enhancement');
-    $('#total')._t('total');
-    $('#')._t('');
+    /*Messages*/
+    $('#check-answers1')._t('check-answers');
+    $('#check-answers2')._t('check-answers');
+    $('#check-answers3')._t('check-answers');
+    $('#check-answers4')._t('check-answers');
+    $('#check-answers5')._t('check-answers');
+    $('#check-answers6')._t('check-answers');
+    $('#acc-btn')._t('accountability');
+    $('#stake-btn')._t('stakeholders');
+    $('#dir-btn')._t('direction');
+    $('#res-btn')._t('resources');
+    $('#enh-btn')._t('enhancement');
+    $('#ag1-results')._t('govscore-results');
+    $('#ag2-results')._t('govscore-results');
+    $('#ag3-results')._t('govscore-results');
+    $('#ag4-results')._t('govscore-results');
+    $('#ag5-results')._t('govscore-results');
+    $('#no-results')._t('no-results');
   }
 }
 
@@ -712,16 +722,48 @@ function calcResults() {
     function findLevel(score){
         switch(true) {
             case( score <= 25 ):
-                level = "<span id='level-1'>Clear need of governance development (first level/4).</span>";
+                if(lang == "fr"){
+                    level = "";
+                }else if(lang == "es") {
+                    level = "";
+                }else if(lang == "pt") {
+                    level = "";
+                }else{
+                level = "<span>Clear need of governance development (first level/4).</span>";
+                }
                 break;
             case( score > 25 && score <= 50 ):
-                level = "<span id='level-2'>Basic level of governance (second level/4)</span>";
+                if(lang == "fr"){
+                    level = "";
+                }else if(lang == "es") {
+                    level = "";
+                }else if(lang == "pt") {
+                    level = "";
+                }else{
+                    level = "<span>Basic level of governance (second level/4)</span>";
+                }
                 break;
             case( score > 50 && score <= 75 ):
-                level = "<span id='level-3'>Goal-Driven and dynamic governance (third level/4)</span>";
+                if(lang == "fr"){
+                    level = "";
+                }else if(lang == "es") {
+                    level = "";
+                }else if(lang == "pt") {
+                    level = "";
+                }else{
+                    level = "Goal-Driven and dynamic governance (third level/4)";
+                }
                 break;
-            case( score > 75 ): 
-                level = "<span id='level-4'>Transformational governance (highest level/4)</span>";
+            case( score > 75 ):
+                if(lang == "fr"){
+                    level = "";
+                }else if(lang == "es") {
+                    level = "";
+                }else if(lang == "pt") {
+                    level = "";
+                }else{ 
+                    level = "Transformational governance (highest level/4)";
+                }
         }
         return level;
     }
@@ -756,20 +798,20 @@ function calcResults() {
         mlevel = findLevel(totalScore);
 
         //list each area with the score
-        res = "<h2 id='gs-assessment'>.Govscore Assessment</h2><p id='your-assessment'>.you assessed your organization a follows: </p>";
-        res += "<div id=\"accountability\"><h3 id='c-a'>.Cultivating Accountability</h3><p>" + accScore + " <span>out of 24 points</span> - " + accPercent + "%.</p></div>";
-        res += "<div id=\"stakeholders\"><h3 id='stake'>.Engaging Stakeholders</h3><p>" + stakeScore + " <span>out of 12 points</span> - " + stakePercent + "%.</p></div>";
-        res += "<div id=\"direction\"><h3 id='dir'>.Shared Strategic Direction</h3><p>" + dirScore + " <span>out of 16 points</span> - " + dirPercent + "%.</p></div>";
-        res += "<div id=\"resources\"><h3 id='res'>.Stewarding Resources</h3><p>" + resScore + " <span>out of 24 points</span> - " + resPercent + "%.</p></div>";
-        res += "<div id=\"enhancement\"><h3 id='enh'>.Continuous Governance Enhancement</h3><p>" + enhScore + " <span>out of 24 points</span> - " + enhPercent + "%.</p></div>";
-        res += "<div id=\"total\"><h3 id='total'>.Total Score</h3><p>" + totalScore +" <span>out of 100 points</span></p><p>This places your organization at:</p><p class=\"level\">" + mlevel + "</p></div>";
-        res += "<div id=\"link\"><p>Learn more at <a href=\"http://govscoreapp.net/\">govscoreapp.net</a></p><p><span>Enter the organization code </span> " + gsdata.organization + " <span> to see how your organization was evaluated collectively.</span></p></div>";
+        var res_en = "<h2 id='gs-assessment'>.Govscore Assessment</h2><p id='your-assessment'>.you assessed your organization a follows: </p>";
+        res_en += "<div id=\"accountability\"><h3 id='c-a'>.Cultivating Accountability</h3><p>" + accScore + " <span>out of 24 points</span> - " + accPercent + "%.</p></div>";
+        res_en += "<div id=\"stakeholders\"><h3 id='stake'>.Engaging Stakeholders</h3><p>" + stakeScore + " <span>out of 12 points</span> - " + stakePercent + "%.</p></div>";
+        res_en += "<div id=\"direction\"><h3 id='dir'>.Shared Strategic Direction</h3><p>" + dirScore + " <span>out of 16 points</span> - " + dirPercent + "%.</p></div>";
+        res_en += "<div id=\"resources\"><h3 id='res'>.Stewarding Resources</h3><p>" + resScore + " <span>out of 24 points</span> - " + resPercent + "%.</p></div>";
+        res_en += "<div id=\"enhancement\"><h3 id='enh'>.Continuous Governance Enhancement</h3><p>" + enhScore + " <span>out of 24 points</span> - " + enhPercent + "%.</p></div>";
+        res_en += "<div id=\"total\"><h3>Total Score</h3><p>" + totalScore +" points out of 100</p><p>This places your organization at:</p><p class=\"level\">" + mlevel + "</p></div>";
+        res_en += "<div id=\"link\"><p>Learn more at <a href=\"http://govscoreapp.net/\">govscoreapp.net</a></p><p><span>Enter the organization code </span> " + gsdata.organization + " <span> to see how your organization was evaluated collectively.</span></p></div>";
         //document.getElementById('gs-results').innerHTML = res;
         
     }
 
     if(ag1data || ag2data || ag3data || ag4data || ag5data ){
-        res += "<h2>Advanced Govscore</h2>";
+        res_en += "<h2>Advanced Govscore</h2>";
 
         function getAgResults(dataset,resSet,ansnums) {
             var resSet = 0;
@@ -799,23 +841,35 @@ function calcResults() {
         ag5level = findLevel(ag5percent);
         
         if(ag1results >= 0){
-            res += "<div id=\"adv-govscore\"><h3>Cultivating Accountability</h3><p>" + ag1results + " <span>out of 24</span> - " + ag1percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag1level + "</p></div>";
+            res_en += "<div id=\"adv-govscore\"><h3>Cultivating Accountability</h3><p>" + ag1results + " <span>out of 24</span> - " + ag1percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag1level + "</p></div>";
         }
         if(ag2results >= 0){
-            res += "<div id=\"adv-govscore\"><h3>Engaging Stakeholders</h3><p>" + ag2results + " <span>out of 24</span> - " + ag2percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag2level + "</p></div>";
+            res_en += "<div id=\"adv-govscore\"><h3>Engaging Stakeholders</h3><p>" + ag2results + " <span>out of 24</span> - " + ag2percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag2level + "</p></div>";
         }
         if(ag3results >= 0){
-            res += "<div id=\"adv-govscore\"><h3>Shared Strategic Direction</h3><p>" + ag3results + " <span>out of 12</span> - " + ag3percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag3level + "</p></div>";
+            res_en += "<div id=\"adv-govscore\"><h3>Shared Strategic Direction</h3><p>" + ag3results + " <span>out of 12</span> - " + ag3percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag3level + "</p></div>";
         }
         if(ag4results >= 0){
-            res += "<div id=\"adv-govscore\"><h3>Stewarding Resources</h3><p>" + ag4results + " <span>out of 24</span> - " + ag4percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag4level + "</p></div>";
+            res_en += "<div id=\"adv-govscore\"><h3>Stewarding Resources</h3><p>" + ag4results + " <span>out of 24</span> - " + ag4percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag4level + "</p></div>";
         }
         if(ag5results >= 0){
-            res += "<div id=\"adv-govscore\"><h3>Continuous Governance Enhancement</h3><p>" + ag5results + " <span>out of 16</span> - " + ag5percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag5level + "</p></div>";
+            res_en += "<div id=\"adv-govscore\"><h3>Continuous Governance Enhancement</h3><p>" + ag5results + " <span>out of 16</span> - " + ag5percent + "%</p><p id='place-at'>This places your organization at:</p><p>" + ag5level + "</p></div>";
         }
     }
-    localStorage.setItem("result", res);
-    document.getElementById('gs-results').innerHTML = res; 
+    if(lang == "fr" ) {
+        localStorage.setItem("result", res_fr);
+        document.getElementById('gs-results').innerHTML = res_fr;
+    }else if(lang == "es" ) {
+        localStorage.setItem("result", res_es);
+        document.getElementById('gs-results').innerHTML = res_es;
+    }else if(lang == "pt" ) {
+        localStorage.setItem("result", res_pt);
+        document.getElementById('gs-results').innerHTML = res_pt;
+    }else{
+        localStorage.setItem("result", res_en);
+        document.getElementById('gs-results').innerHTML = res_en;
+    }
+
 }
 
 
